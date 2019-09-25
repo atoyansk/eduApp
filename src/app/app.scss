@@ -14,3 +14,70 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.content-md {
+    color: color($colors, textdark);
+    background-color: color($colors, branco);
+}
+
+.tabs-md .tabbar {
+    background: color($colors, primary);
+    bottom: 0;
+}
+
+.tabs-md .tab-button-icon {
+    font-size: 2rem;
+    color: color($colors, branco);
+}
+
+
+.tabs-md .tab-button {
+    min-height: 5.1rem;
+    font-weight: normal;
+    color: color($colors, branco);
+    padding: 0;
+}
+
+.tabs-md .tab-button[aria-selected=true] {
+    min-height: 7rem;
+}
+
+.tabs-md .tab-button[aria-selected=true] .tab-button-icon {
+    color: color($colors, primary);
+    -webkit-transform: translate3d(0, -9px, 0);
+    transform: translate3d(0, -9px, 0);
+}
+
+.tabs-md .tab-button[aria-selected=true] .tab-button-icon:before {
+    width: 30px;
+    height: 30px;
+}
+
+.tabs-md .tab-button[aria-selected=true] .tab-button-icon:after {
+    content: ' \25CF';
+    font-size: 60px;
+    color: color($colors, branco);
+    position: absolute;
+    z-index: -9;
+    left: -3px;
+    top: -21px;
+}
+
+
+.tabs-md .tab-button[aria-selected=true] .tab-button-text{
+    transform: scale(1) translate3d(0, -5px, 0);
+    opacity: 1;
+    color: color($colors, branco);
+}
+
+.tabs-md .tab-button .tab-button-text{
+    opacity: 0;
+    transform: scale(0) translate3d(0, 15px, 0);
+}
+
+.tabs-md[tabsLayout=icon-top] .has-icon .tab-button-text{
+    margin-top: 0px;
+}
+
+
+
