@@ -39,7 +39,7 @@
 }
 
 .tabs-md .tab-button[aria-selected=true] {
-    min-height: 7rem;
+    min-height: 8rem;
 }
 
 .tabs-md .tab-button[aria-selected=true] .tab-button-icon {
@@ -61,14 +61,42 @@
     z-index: -9;
     left: -3px;
     top: -21px;
+    animation: bounce .8s 0s;
+    transform: scale(1);
 }
 
+.tabs-md .tab-button[aria-selected=true]:after {
+    content: ' \25CF';
+    font-size: 100px;
+    color: color($colors, primary);
+    position: absolute;
+    z-index: -20;
+    top: -45px;
+    animation: bounce .8s 0s;
+}
+
+@keyframes bounce {
+    0% { transform: scale(0); opacity: 0 }
+    50% { transform: scale(1); opacity: 1 }
+    60% { transform: scale(0.6)}
+    80% { transform: scale(1.1) }
+    100% { transform: scale(1)}
+  }
 
 .tabs-md .tab-button[aria-selected=true] .tab-button-text{
-    transform: scale(1) translate3d(0, -5px, 0);
+    animation: bounce2 .8s 0s;
+    transform: scale(1) translate3d(0, -5px, 0) ;
     opacity: 1;
     color: color($colors, branco);
 }
+
+@keyframes bounce2 {
+    0% { transform: scale(0); opacity: 0 }
+    50% { transform: scale(1); opacity: 1 }
+    60% { transform: scale(0.6) translate3d(0, -5px, 0) }
+    80% { transform: scale(1.1) translate3d(0, -6px, 0) }
+    100% { transform: scale(1) translate3d(0, -5px, 0) }
+  }
 
 .tabs-md .tab-button .tab-button-text{
     opacity: 0;
@@ -77,6 +105,64 @@
 
 .tabs-md[tabsLayout=icon-top] .has-icon .tab-button-text{
     margin-top: 0px;
+}
+
+
+.footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before {
+    top: -2px;
+    bottom: auto;
+    background-position: left 0 top 0;
+    height: 15px;
+    background-color: color($colors, branco);
+}
+
+.tabs-md[tabsPlacement="bottom"] > .tabbar::before{
+    background-image: none;
+}
+
+
+/*TOP*/
+.toolbar-background-md, .toolbar-background-ios {
+    border-color: color($colors, primary);
+    background: color($colors, primary);
+}
+
+.toolbar-ios{
+    height: 60px;
+    padding: 0px;
+}
+.toolbar-title-md {
+    padding: 4px;
+    font-size: 1.8rem;
+    color: color($colors, branco);
+    margin: 10px 0 0 20px;
+    animation: pulse 1.5s;
+}
+
+.toolbar-title-ios {
+    color: color($colors, branco);
+    margin-top: 20px;
+    animation: pulse 1.5s;
+}
+
+@keyframes pulse {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+.toolbar-ios ion-title {
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translateZ(0px);
+    pointer-events: none;
+    padding: 0px 5px 5px;
 }
 
 
