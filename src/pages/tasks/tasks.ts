@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild, ChangeDetectorRef, Renderer } from '@angular/core';
+import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 import { WorksPage } from '../works/works';
 import { MorePage } from '../more/more';
 import { TaskPage } from '../task/task';
@@ -13,22 +13,46 @@ import { TaskPage } from '../task/task';
 export class TasksPage {
 
   selectedSegment = 'task';
-  
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public currentColor: string;
+  
+  @ViewChild(Content)
+    myContent:Content;
+
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private changeDetectorRef: ChangeDetectorRef,
+    public renderer: Renderer) {
+    this.currentColor = "transp";
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TasksPage');
   }
 
-  // scrollHandler(event){
-  //   console.log("####SCROLL EVENT : ", event.scrollTop)
-  //   if(event.scrollTop > 132){
-  //     let css = ".toolbar-background {background-color: #4527A0 !important;}";
-  //   }else{
-  //     let css = ".toolbar-background {background: transparent !important;}";
-  //   }
+  ngAfterViewInit(){
+
+    this.myContent.ionScroll.subscribe((ev) => {
+      this.scrollHandler(ev);
+    });
+  }
+
+  scrollHandler(ev){
+    ev.domWrite(() => {
+      if(ev.scrollTop > 120){
+        this.currentColor = "primary";
+        //this.setTransitions();
+        this.changeDetectorRef.detectChanges();
+      }else{
+        this.currentColor = "transp";
+        //this.setTransitions();
+        this.changeDetectorRef.detectChanges();
+      }
+    }) 
+  }
+
+  // setTransitions(){
+  //   this.renderer.setElementStyle(this.currentColor, 'transition', '1s linear');
   // }
 
 }
