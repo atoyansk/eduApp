@@ -20,6 +20,10 @@
     background-color: color($colors, branco);
 }
 
+.no-scroll .scroll-content{
+    overflow: hidden;
+  }
+
 .tabs-md .tabbar {
     background: color($colors, primary);
     bottom: 0;

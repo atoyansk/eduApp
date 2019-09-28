@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { WorksPage } from '../works/works';
+import { MorePage } from '../more/more';
+import { TaskPage } from '../task/task';
 
 
 @IonicPage()
@@ -9,9 +12,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TasksPage {
 
-  tab1 = 'TaskPage';
-  tab2 = 'WorksPage';
-  tab3 = 'MorePage';
+  selectedSegment = 'task';
+  
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -19,5 +21,14 @@ export class TasksPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad TasksPage');
   }
+
+  // scrollHandler(event){
+  //   console.log("####SCROLL EVENT : ", event.scrollTop)
+  //   if(event.scrollTop > 132){
+  //     let css = ".toolbar-background {background-color: #4527A0 !important;}";
+  //   }else{
+  //     let css = ".toolbar-background {background: transparent !important;}";
+  //   }
+  // }
 
 }

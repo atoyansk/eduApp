@@ -6,11 +6,20 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+// import { WorksPage } from '../pages/works/works';
+// import { MorePage } from '../pages/more/more';
+// import { TaskPage } from '../pages/task/task';
+
+//import { ShrinkingSegmentHeader } from '../components/shrinking-segment-header/shrinking-segment-header';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    // TaskPage,
+    // WorksPage,
+    // MorePage,
+    //ShrinkingSegmentHeader
   ],
   imports: [
     BrowserModule,
@@ -19,7 +28,10 @@ import { HomePage } from '../pages/home/home';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    // TaskPage,
+    // WorksPage,
+    // MorePage
   ],
   providers: [
     StatusBar,

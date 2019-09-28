@@ -1,21 +1,44 @@
 
 <ion-header>
-  <ion-navbar>
+  <!-- <ion-navbar>
     <ion-title>Tasks</ion-title>
-  </ion-navbar>
+  </ion-navbar> -->
+
+  <shrinking-segment-header [scrollArea]="myContent" headerHeight="120">
+      <h3>Tasks</h3>
+    <img src="https://avatars.io/static/default_48.jpg" />
+  </shrinking-segment-header>
+
+  <ion-toolbar color="light" mode="md">
+    <ion-segment [(ngModel)]="selectedSegment">
+      <ion-segment-button value="task">
+        My Tasks
+      </ion-segment-button>
+      <ion-segment-button value="works">
+        My Works
+      </ion-segment-button>
+      <ion-segment-button value="more">
+        More Content
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
-<ion-content>
-  <ion-buttons>
-    <button ion-button class="active">
-      My Tasks
-    </button>
-    <button ion-button (click)="">
-      My Works
-    </button>
-    <button ion-button (click)="">
-      More Contents
-    </button>
-  </ion-buttons>
+
+<ion-content fullscreen #myContent>
+
+  
+  <!--Put segment content here-->
+	<div [ngSwitch]="selectedSegment">
+		<div *ngSwitchCase="'task'">
+      <page-task></page-task>
+    </div>
+		<div *ngSwitchCase="'works'">
+			<page-works></page-works>
+    </div>
+		<div *ngSwitchCase="'more'">
+			<page-more></page-more>
+    </div>
+  </div>
 </ion-content>
 
 
