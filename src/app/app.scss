@@ -24,13 +24,27 @@
     overflow: hidden;
   }
 
+//   ion-tabs ion-tab > .ion-page { 
+//     animation: fadeIn 1s 1 forwards;
+//   }
+//   @keyframes fadeIn {
+//     0% {
+//       opacity: 0;
+//       //transform: translate3d(0, 2vh, 0);
+//     }
+//     100% {
+//       opacity: 1;
+//       //transform: translate3d(0, 0, 0);
+//     }
+//   }
+
 .tabs-md .tabbar {
     background: color($colors, primary);
     bottom: 0;
 }
 
 .tabs-md .tab-button-icon {
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: color($colors, branco);
 }
 
@@ -59,7 +73,7 @@
 
 .tabs-md .tab-button[aria-selected=true] .tab-button-icon:after {
     content: ' \25CF';
-    font-size: 60px;
+    font-size: 62px;
     color: color($colors, branco);
     position: absolute;
     z-index: -9;
@@ -69,7 +83,7 @@
     transform: scale(1);
 }
 
-.tabs-md .tab-button[aria-selected=true]:after {
+.tabs-md .tab-button[aria-selected=true]::after {
     content: ' \25CF';
     font-size: 100px;
     color: color($colors, primary);
@@ -86,6 +100,10 @@
     80% { transform: scale(1.1) }
     100% { transform: scaleY(1)}
   }
+
+.tabs-md .tab-button-text{
+    font-size: 1.6rem;
+}
 
 .tabs-md .tab-button[aria-selected=true] .tab-button-text{
     animation: bounce2 .8s 0s;
@@ -104,7 +122,7 @@
 
 .tabs-md .tab-button .tab-button-text{
     opacity: 0;
-    transform: scale(0) translate3d(0, 15px, 0);
+    transform: scale(0) translate3d(0, 20px, 0);
 }
 
 .tabs-md[tabsLayout=icon-top] .has-icon .tab-button-text{
@@ -137,7 +155,7 @@
 }
 .toolbar-title-md {
     padding: 4px;
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: color($colors, branco);
     margin: 10px 0 0 20px;
     animation: pulse 1.5s;

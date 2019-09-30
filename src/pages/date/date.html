@@ -14,7 +14,7 @@
         My Schedules
       </ion-segment-button>
       <ion-segment-button value="events">
-        My Events
+        Events
       </ion-segment-button>
       <ion-segment-button value="calendar">
         My Calendar
@@ -25,7 +25,6 @@
 
 <ion-content fullscreen #myContent>
 
-  
   <!--Put segment content here-->
 	<div [ngSwitch]="selectedSegment">
 		<div *ngSwitchCase="'schedules'">
