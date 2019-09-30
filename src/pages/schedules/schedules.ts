@@ -3,18 +3,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-works',
-  templateUrl: 'works.html',
+  selector: 'page-schedules',
+  templateUrl: 'schedules.html',
 })
-export class WorksPage {
-  
-  somethings: any = new Array(20);
+export class SchedulesPage {
+
+  somethings: any = new Array(10);
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad WorksPage');
+    console.log('ionViewDidLoad SchedulesPage');
   }
 
 }

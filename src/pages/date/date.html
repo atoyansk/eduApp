@@ -1,9 +1,41 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Schedule</ion-title>
-  </ion-navbar>
+  <!-- <ion-navbar>
+    <ion-title>Tasks</ion-title>
+  </ion-navbar> -->
+
+  <shrinking-segment-header [scrollArea]="myContent" headerHeight="120">
+      <h3>Schedule</h3>
+    <img src="https://avatars.io/static/default_48.jpg" />
+  </shrinking-segment-header>
+
+  <ion-toolbar #tool [color]="currentColor">
+    <ion-segment [(ngModel)]="selectedSegment">
+      <ion-segment-button value="schedules">
+        My Schedules
+      </ion-segment-button>
+      <ion-segment-button value="events">
+        My Events
+      </ion-segment-button>
+      <ion-segment-button value="calendar">
+        My Calendar
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content fullscreen #myContent>
 
+  
+  <!--Put segment content here-->
+	<div [ngSwitch]="selectedSegment">
+		<div *ngSwitchCase="'schedules'">
+      <page-schedules></page-schedules>
+    </div>
+		<div *ngSwitchCase="'events'">
+			<page-events></page-events>
+    </div>
+		<div *ngSwitchCase="'calendar'">
+			<page-calendar></page-calendar>
+    </div>
+  </div>
 </ion-content>

@@ -1,8 +1,5 @@
-import { Component, ViewChild, ChangeDetectorRef, Renderer } from '@angular/core';
+import { Component, ViewChild, ChangeDetectorRef, Renderer, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
-import { WorksPage } from '../works/works';
-import { MorePage } from '../more/more';
-import { TaskPage } from '../task/task';
 
 
 @IonicPage()
@@ -15,6 +12,10 @@ export class TasksPage {
   selectedSegment = 'task';
 
   public currentColor: string;
+
+  //toolbarstyle;
+
+  //@ViewChild('tool') tool:Content;
   
   @ViewChild(Content)
     myContent:Content;
@@ -22,7 +23,9 @@ export class TasksPage {
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
     private changeDetectorRef: ChangeDetectorRef,
-    public renderer: Renderer) {
+    public renderer: Renderer,
+    public element: ElementRef) {
+
     this.currentColor = "transp";
   }
 
@@ -35,6 +38,8 @@ export class TasksPage {
     this.myContent.ionScroll.subscribe((ev) => {
       this.scrollHandler(ev);
     });
+
+    //this.toolbarstyle = this.tool._elementRef.nativeElement;
   }
 
   scrollHandler(ev){
@@ -52,7 +57,7 @@ export class TasksPage {
   }
 
   // setTransitions(){
-  //   this.renderer.setElementStyle(this.currentColor, 'transition', '1s linear');
+  //   this.renderer.setElementStyle(this.toolbarstyle, 'transition', '1s linear');
   // }
 
 }

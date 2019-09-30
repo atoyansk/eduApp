@@ -1,12 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ChangeDetectorRef, Renderer, ElementRef, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 
-/**
- * Generated class for the DatePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -15,11 +9,50 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class DatePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  selectedSegment = 'schedules';
+
+  public currentColor: string;
+
+  @ViewChild(Content)
+  myContent:Content;
+
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private changeDetectorRef: ChangeDetectorRef,
+    public renderer: Renderer,
+    public element: ElementRef) {
+
+      this.currentColor = "transp";
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DatePage');
   }
 
+  ngAfterViewInit(){
+
+    this.myContent.ionScroll.subscribe((ev) => {
+      this.scrollHandler(ev);
+    });
+
+    //this.toolbarstyle = this.tool._elementRef.nativeElement;
+  }
+
+  scrollHandler(ev){
+    ev.domWrite(() => {
+      if(ev.scrollTop > 120){
+        this.currentColor = "primary";
+        //this.setTransitions();
+        this.changeDetectorRef.detectChanges();
+      }else{
+        this.currentColor = "transp";
+        //this.setTransitions();
+        this.changeDetectorRef.detectChanges();
+      }
+    }) 
+  }
+
+  // setTransitions(){
+  //   this.renderer.setElementStyle(this.toolbarstyle, 'transition', '1s linear');
+  // }
 }

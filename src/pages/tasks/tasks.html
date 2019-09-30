@@ -9,7 +9,7 @@
     <img src="https://avatars.io/static/default_48.jpg" />
   </shrinking-segment-header>
 
-  <ion-toolbar [color]="currentColor">
+  <ion-toolbar #tool [color]="currentColor">
     <ion-segment [(ngModel)]="selectedSegment">
       <ion-segment-button value="task">
         My Tasks

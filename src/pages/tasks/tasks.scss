@@ -1,20 +1,7 @@
 page-tasks {
 
-  // ion-segment{
-  //   padding-top: 60px;
-  //   background-image: linear-gradient(to top right,#9672C9,#6B63D3);
-  // }
-
   ion-header {
-    // background-image: 
-    // //url('../../assets/imgs/02-background-color.jpg');
-    // url('../../assets/imgs/03-background-color.jpg');
-    // background-size: cover;
-    // background-repeat: no-repeat;
-    // background-position: center;
-
     background-image: 
-    // linear-gradient(to top right,#AC5E98,#6B63D3),
     url('../../assets/imgs/lens-flare.png'), 
     linear-gradient(to top right,#AC5E98,#6B63D3);
     background-position: center;
@@ -25,11 +12,6 @@ page-tasks {
   }
 
   shrinking-segment-header {
-
-    //background-image: 
-    //url('../../assets/imgs/02-background-color.jpg'),
-    //url('../../assets/imgs/8964-background-color.jpg'),
-    //linear-gradient(to top right,#9672C9,#6B63D3);
     background-color: transparent;
     color: #fff;
     display: flex;
