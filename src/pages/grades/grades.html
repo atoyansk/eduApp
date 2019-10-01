@@ -1,9 +1,34 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Grades</ion-title>
-  </ion-navbar>
+  <!-- <ion-navbar>
+    <ion-title>Tasks</ion-title>
+  </ion-navbar> -->
+
+  <shrinking-segment-header [scrollArea]="myContent" headerHeight="120">
+      <h3>Grades</h3>
+    <img src="https://avatars.io/static/default_48.jpg" />
+  </shrinking-segment-header>
+
+  <ion-toolbar #tool [color]="currentColor">
+    <ion-segment [(ngModel)]="selectedSegment">
+      <ion-segment-button value="gradcert">
+        Grades
+      </ion-segment-button>
+      <ion-segment-button value="absences">
+        Absences
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content fullscreen #myContent>
 
+  <!--Put segment content here-->
+	<div [ngSwitch]="selectedSegment">
+		<div *ngSwitchCase="'gradcert'">
+      <page-gradcert></page-gradcert>
+    </div>
+		<div *ngSwitchCase="'absences'">
+			<page-absences></page-absences>
+    </div>
+  </div>
 </ion-content>
