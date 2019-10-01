@@ -7,11 +7,12 @@ import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/na
   selector: 'page-home',
   templateUrl: 'home.html',
 })
-export class HomePage {
+export class HomePage {  
   tab1 = 'DatePage';
   tab2 = 'GradesPage';
-  tab3 = 'TasksPage';
-  tab4 = 'MessagesPage';
+  tab3 = 'DefaultPage';
+  tab4 = 'TasksPage';
+  tab5 = 'MessagesPage';
 
   loaded:   boolean = false;
   tabIndex: number  = 0;

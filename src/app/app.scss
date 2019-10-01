@@ -41,6 +41,7 @@
 .tabs-md .tabbar {
     background: color($colors, primary);
     bottom: 0;
+    padding: 0 2px;
 }
 
 .tabs-md .tab-button-icon {
@@ -102,7 +103,7 @@
   }
 
 .tabs-md .tab-button-text{
-    font-size: 1.6rem;
+    font-size: 1.2rem;
 }
 
 .tabs-md .tab-button[aria-selected=true] .tab-button-text{

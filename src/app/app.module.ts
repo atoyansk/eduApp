@@ -9,6 +9,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
 import { DatePageModule } from '../pages/date/date.module';
+import { GradesPageModule } from '../pages/grades/grades.module';
 import { TasksPageModule } from '../pages/tasks/tasks.module';
 
 @NgModule({
@@ -20,6 +21,7 @@ import { TasksPageModule } from '../pages/tasks/tasks.module';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     DatePageModule,
+    GradesPageModule,
     TasksPageModule
   ],
   bootstrap: [IonicApp],

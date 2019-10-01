@@ -1,6 +1,7 @@
-<ion-tabs (ionChange)="transition($event)">
+<ion-tabs (ionChange)="transition($event)" selectedIndex="2">  
   <ion-tab [root]="tab1" tabTitle="Schedule" tabIcon="calendar"></ion-tab>
   <ion-tab [root]="tab2" tabTitle="Grades" tabIcon="grid"></ion-tab>
-  <ion-tab [root]="tab3" tabTitle="Tasks" tabIcon="checkbox-outline"></ion-tab>
-  <ion-tab [root]="tab4" tabTitle="Messages" tabIcon="paper-plane"></ion-tab>
+  <ion-tab [root]="tab3" tabTitle="Home" tabIcon="home"></ion-tab>
+  <ion-tab [root]="tab4" tabTitle="Tasks" tabIcon="checkbox-outline"></ion-tab>
+  <ion-tab [root]="tab5" tabTitle="Messages" tabIcon="paper-plane"></ion-tab>
  </ion-tabs>
