@@ -68,8 +68,8 @@
 }
 
 .tabs-md .tab-button[aria-selected=true] .tab-button-icon:before {
-    width: 30px;
-    height: 30px;
+    width: 29px;
+    height: 29px;
 }
 
 .tabs-md .tab-button[aria-selected=true] .tab-button-icon:after {
@@ -78,7 +78,7 @@
     color: color($colors, branco);
     position: absolute;
     z-index: -9;
-    left: -3px;
+    left: -4px;
     top: -21px;
     animation: bounce .8s 0s;
     transform: scale(1);
@@ -89,7 +89,7 @@
     font-size: 100px;
     color: color($colors, primary);
     position: absolute;
-    z-index: -20;
+    z-index: -1;
     top: -45px;
     animation: bounce .8s 0s;
 }
