@@ -2,8 +2,9 @@ page-tasks {
 
   ion-header {
     background-image: 
-    url('../../assets/imgs/lens-flare.png'), 
+    url('../../assets/imgs/topo-tasks.png'), 
     linear-gradient(to top right,#AC5E98,#6B63D3);
+    background-size: cover;
     background-position: center;
   }
 
@@ -13,11 +14,11 @@ page-tasks {
 
   shrinking-segment-header {
     background-color: transparent;
-    color: #fff;
+    color: #6900c7;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 30px;
+    margin: 0 16px;
 
     img {
         border-radius: 50%;
@@ -48,7 +49,7 @@ page-tasks {
   margin: 8px auto -4px;
 }
   .segment-md .segment-button{
-    color: color($colors, branco);
+    color: #6900c7;
     text-transform: none;
     padding: 0 3px;
     font-size: 1.3rem;
@@ -56,6 +57,6 @@ page-tasks {
   }
 
   .segment-md .segment-button.segment-activated {
-    border-bottom: 4px solid color($colors, branco);
+    border-bottom: 4px solid #6900c7;
   }
 }
