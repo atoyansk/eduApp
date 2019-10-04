@@ -20,16 +20,8 @@ import { TasksPageModule } from '../pages/tasks/tasks.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { GetServicesProvider } from '../providers/get-services/get-services';
 
+import { FirebaseConfig } from './firebase.credentials';
 
-export const FirebaseConfig = {
-  apiKey: "AIzaSyB_5tvMn7UjYIIwPS7MiciPpq5lxcdzKIc",
-  authDomain: "eduapp-118f8.firebaseapp.com",
-  databaseURL: "https://eduapp-118f8.firebaseio.com",
-  projectId: "eduapp-118f8",
-  storageBucket: "",
-  messagingSenderId: "305003753304",
-  appId: "1:305003753304:web:8556607577ca82402fff2d"
-}
 
 @NgModule({
   declarations: [
