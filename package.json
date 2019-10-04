@@ -16,20 +16,28 @@
     "@angular/compiler": "5.2.11",
     "@angular/compiler-cli": "5.2.11",
     "@angular/core": "5.2.11",
+    "@angular/fire": "^5.2.1",
     "@angular/forms": "5.2.11",
     "@angular/http": "5.2.11",
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
     "@ionic-native/core": "~4.20.0",
+    "@ionic-native/firebase": "^4.17.0",
     "@ionic-native/native-page-transitions": "^4.20.0",
     "@ionic-native/splash-screen": "~4.20.0",
     "@ionic-native/status-bar": "~4.20.0",
     "@ionic/storage": "2.2.0",
     "com.telerik.plugins.nativepagetransitions": "0.6.5",
     "cordova-android": "8.1.0",
+    "cordova-plugin-androidx": "1.0.2",
+    "cordova-plugin-androidx-adapter": "1.1.0",
+    "cordova-plugin-firebasex": "6.1.0",
+    "firebase": "^5.5.3",
     "ionic-angular": "3.9.5",
     "ionicons": "3.0.0",
-    "rxjs": "5.5.11",
+    "promise-polyfill": "^8.1.3",
+    "rxjs": "6.3.3",
+    "rxjs-compat": "^6.4.0",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.29"
   },
@@ -55,7 +63,22 @@
       "cordova-plugin-ionic-webview": {
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
-      "cordova-plugin-ionic-keyboard": {}
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-firebasex": {
+        "FIREBASE_ANALYTICS_COLLECTION_ENABLED": "true",
+        "FIREBASE_PERFORMANCE_COLLECTION_ENABLED": "true",
+        "FIREBASE_CRASHLYTICS_COLLECTION_ENABLED": "true",
+        "ANDROID_ICON_ACCENT": "#FF00FFFF",
+        "ANDROID_PLAY_SERVICES_TAGMANAGER_VERSION": "17.0.0",
+        "ANDROID_FIREBASE_CORE_VERSION": "17.0.0",
+        "ANDROID_FIREBASE_MESSAGING_VERSION": "19.0.0",
+        "ANDROID_FIREBASE_CONFIG_VERSION": "18.0.0",
+        "ANDROID_FIREBASE_PERF_VERSION": "18.0.0",
+        "ANDROID_FIREBASE_AUTH_VERSION": "18.0.0",
+        "ANDROID_CRASHLYTICS_VERSION": "2.10.1",
+        "ANDROID_CRASHLYTICS_NDK_VERSION": "2.1.0",
+        "ANDROID_SHORTCUTBADGER_VERSION": "1.1.22"
+      }
     },
     "platforms": [
       "android"

@@ -44,7 +44,7 @@ export class TasksPage {
 
   scrollHandler(ev){
     ev.domWrite(() => {
-      if(ev.scrollTop > 120){
+      if(ev.scrollTop >= 120){
         this.currentColor = "branco";
         //this.setTransitions();
         this.changeDetectorRef.detectChanges();

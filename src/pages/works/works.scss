@@ -1,3 +1,17 @@
 page-works {
+    .card-md {
+        margin: 8px;
+        float: left;
+        width: calc(50% - 16px);
+        height: 100px;
+    }
+    .card-md + ion-card {
+        margin-top: 8px;
+    }
 
+    .card-content-md {
+        padding: 10px 14px;
+        font-size: 1.2rem;
+        line-height: 1.5;
+    }
 }
