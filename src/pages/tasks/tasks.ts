@@ -9,7 +9,7 @@ import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 })
 export class TasksPage {
 
-  selectedSegment = 'task';
+  selectedSegment = 'homeworks';
 
   public currentColor: string;
 

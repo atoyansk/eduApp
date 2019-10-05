@@ -3,10 +3,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-task',
-  templateUrl: 'task.html',
+  selector: 'page-homeworks',
+  templateUrl: 'homeworks.html',
 })
-export class TaskPage {
+export class HomeworksPage {
 
   somethings: any = new Array(20);
 
@@ -14,7 +14,7 @@ export class TaskPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TaskPage');
+    console.log('ionViewDidLoad HomeworksPage');
   }
 
 }

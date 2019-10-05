@@ -3,7 +3,7 @@ import { IonicPageModule } from 'ionic-angular';
 import { TasksPage } from './tasks';
 import { WorksPage } from '../works/works';
 import { MorePage } from '../more/more';
-import { TaskPage } from '../task/task';
+import { HomeworksPage } from '../homeworks/homeworks';
 
 import { ComponentsModule } from '../../components/components.module';
 
@@ -12,7 +12,7 @@ import { ComponentsModule } from '../../components/components.module';
     TasksPage,
     WorksPage,
     MorePage,
-    TaskPage
+    HomeworksPage
   ],
   imports: [
     IonicPageModule.forChild(TasksPage),

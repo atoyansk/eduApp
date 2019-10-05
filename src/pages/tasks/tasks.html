@@ -11,11 +11,11 @@
 
   <ion-toolbar #tool [color]="currentColor">
     <ion-segment [(ngModel)]="selectedSegment">
-      <ion-segment-button value="task">
-        My Tasks
+      <ion-segment-button value="homeworks">
+        Homeworks
       </ion-segment-button>
       <ion-segment-button value="works">
-        My Works
+        Group Works
       </ion-segment-button>
       <ion-segment-button value="more">
         More Content
@@ -29,8 +29,8 @@
   
   <!--Put segment content here-->
 	<div [ngSwitch]="selectedSegment">
-		<div *ngSwitchCase="'task'">
-      <page-task></page-task>
+		<div *ngSwitchCase="'homeworks'">
+      <page-homeworks></page-homeworks>
     </div>
 		<div *ngSwitchCase="'works'">
 			<page-works></page-works>
