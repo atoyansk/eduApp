@@ -13,6 +13,7 @@ import 'firebase/storage';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { TodoPage } from '../pages/todo/todo';
 
 import { DatePageModule } from '../pages/date/date.module';
 import { GradesPageModule } from '../pages/grades/grades.module';
@@ -26,7 +27,8 @@ import { FirebaseConfig } from './firebase.credentials';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    TodoPage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import { FirebaseConfig } from './firebase.credentials';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    TodoPage
   ],
   providers: [
     StatusBar,

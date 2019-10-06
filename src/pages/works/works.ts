@@ -6,6 +6,7 @@ import * as firebase from 'firebase/app';
 import 'rxjs/add/operator/map';
 
 import { GetServicesProvider } from '../../providers/get-services/get-services'
+import { TodoPage } from '../todo/todo';
 
 @IonicPage()
 @Component({
@@ -15,6 +16,7 @@ import { GetServicesProvider } from '../../providers/get-services/get-services'
 export class WorksPage {
 
   works;
+  subjectImg: string;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
@@ -34,7 +36,19 @@ export class WorksPage {
     this.works.subscribe(
         res=> {
           console.log(res);
-        })      
+        })
+        // .map(a => {
+        //   if(a.subject = 'Chemistry'){
+        //     this.subjectImg = '../../assets/imgs/03-background-color.jpg'
+        //     console.log(a.subject);
+        //   }else if(a.subject = 'Mathematics'){
+        //     this.subjectImg = '../../assets/imgs/04-background-color.jpg'
+        //   }
+        // })      
+  }
+
+  goTodo(data){
+    this.navCtrl.push(TodoPage, {data: data});
   }
 
 }
