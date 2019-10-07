@@ -1,3 +1,28 @@
 page-todo {
+    ion-header {
+        height: 150px;
+        background-image: 
+        url('../../assets/imgs/topo-tasks.png'), 
+        linear-gradient(to top right,#AC5E98,#6B63D3);
+        background-size: cover;
+        background-position: center;
+      }
+
+      .bar-button-default-md {
+        color: #6900c7;
+    }
+
+    .toolbar-background-md, .toolbar-background-ios {
+        border-color: transparent !important;
+        background: transparent !important;
+    }
+
+    h3 {
+        color: #6900c7;
+        margin: 0 16px;
+        font-size: 2rem;
+        font-weight: 500;
+        width: 130px;
+      }
 
 }

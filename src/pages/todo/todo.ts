@@ -10,10 +10,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class TodoPage {
 
   data;
+  name;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
     this.data = navParams.get('data');
+    this.name = this.data.name;
     console.log(this.data.id);
   }
 
