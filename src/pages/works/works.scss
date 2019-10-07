@@ -3,7 +3,7 @@ page-works {
         margin: 8px;
         float: left;
         width: calc(50% - 16px);
-        height: 22vh;
+        height: 20vh;
         border-radius: 8px;
         text-align: center;
         -webkit-box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
@@ -27,5 +27,47 @@ page-works {
         font-weight: 600;
     }
 
+    #contChemistry{
+        background-image: url('../../assets/imgs/wave1.png');
+        // background-size: cover;
+        background-repeat: no-repeat;
+        background-position-y: -10vh;
+        background-position-x: 0px;
+    }
+    #contBiology{
+        background-image: url('../../assets/imgs/wave2.png');
+        // background-size: cover;
+        background-repeat: no-repeat;
+        background-position-y: -10vh;
+        background-position-x: -10px;
+    }
+    #contHistory{
+        background-image: url('../../assets/imgs/wave3.png');
+        // background-size: cover;
+        background-repeat: no-repeat;
+        background-position-y: -10vh;
+        background-position-x: -20px;
+    }
+    #contMathematics{
+        background-image: url('../../assets/imgs/wave4.png');
+        // background-size: cover;
+        background-repeat: no-repeat;
+        background-position-y: -10vh;
+        background-position-x: -70px;
+    }
+    #contEnglish{
+        background-image: url('../../assets/imgs/wave5.png');
+        // background-size: cover;
+        background-repeat: no-repeat;
+        background-position-y: -10vh;
+        background-position-x: -40px;
+    }
 
+    @keyframes bounce {
+        0% { transform: scale(0); opacity: 0 }
+        50% { transform: scale(1); opacity: 1 }
+        60% { transform: scale(0.7)}
+        80% { transform: scale(1.1)}
+        100% { transform: scaleY(1)}
+      }
 }

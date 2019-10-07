@@ -1,8 +1,7 @@
 <ion-list>
-  <ion-card *ngFor="let wk of works | async" (click)="goTodo(wk)">
+  <ion-card *ngFor="let wk of works | async" (click)="goTodo(wk)" id="cont{{wk.subject}}">
     <ion-card-content>
       <span>{{ wk.name }}</span>
-      <!-- <img [src]=subjectImg> -->
     </ion-card-content>
   </ion-card>
 </ion-list>

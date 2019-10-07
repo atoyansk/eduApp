@@ -24,6 +24,7 @@ export class WorksPage {
     public getServices: GetServicesProvider) {
 
       this.listWorks();
+
   }
 
   ionViewDidLoad() {
@@ -36,15 +37,8 @@ export class WorksPage {
     this.works.subscribe(
         res=> {
           console.log(res);
-        })
-        // .map(a => {
-        //   if(a.subject = 'Chemistry'){
-        //     this.subjectImg = '../../assets/imgs/03-background-color.jpg'
-        //     console.log(a.subject);
-        //   }else if(a.subject = 'Mathematics'){
-        //     this.subjectImg = '../../assets/imgs/04-background-color.jpg'
-        //   }
-        // })      
+          
+        })     
   }
 
   goTodo(data){
