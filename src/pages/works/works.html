@@ -1,3 +1,4 @@
+<loading-spinner *ngIf="showSpinner"></loading-spinner>
 <ion-list>
   <ion-card *ngFor="let wk of works | async" (click)="goTodo(wk)" id="cont{{wk.subject}}">
     <ion-card-content>

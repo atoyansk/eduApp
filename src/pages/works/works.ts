@@ -16,7 +16,7 @@ import { TodoPage } from '../todo/todo';
 export class WorksPage {
 
   works;
-  subjectImg: string;
+  showSpinner: boolean = true;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
@@ -37,7 +37,7 @@ export class WorksPage {
     this.works.subscribe(
         res=> {
           console.log(res);
-          
+          this.showSpinner = false;
         })     
   }
 
