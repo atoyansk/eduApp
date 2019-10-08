@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class GetServicesProvider {
 
+
   constructor(public db: AngularFireDatabase) {
     
   }
@@ -23,8 +24,9 @@ export class GetServicesProvider {
     })
   }
 
-  getTasks(){
-    return this.db.list('tasks/').snapshotChanges()
+  getTasks(id){
+    return this.db.list('tasks/', ref => 
+    ref.orderByChild('workId').equalTo(id)).snapshotChanges()
     .map(changes =>{
       return changes.map(c=> {
         const data = c.payload.val();
@@ -34,10 +36,14 @@ export class GetServicesProvider {
     })
   }
 
-  createTask(){
+  doneTask(key){
+    this.db.list('tasks/').update(key, {done: true});
+  }
+
+  createTask(name, description){
     this.db.list('tasks/').push({ 
-      // name: task.name, 
-      // description: task.description 
+      name: name, 
+      description: description 
     })
   }
 

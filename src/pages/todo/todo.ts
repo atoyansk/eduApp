@@ -17,9 +17,12 @@ export class TodoPage {
 
   data;
   name;
+  id;
 
   tasks;
   showSpinner: boolean = true;
+
+  status=true;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
@@ -28,7 +31,7 @@ export class TodoPage {
 
     this.data = navParams.get('data');
     this.name = this.data.name;
-    console.log(this.data.id);
+    this.id = this.data.id;
 
     this.listTasks();
   }
@@ -38,7 +41,7 @@ export class TodoPage {
   }
 
   listTasks(){
-    this.tasks = this.getServices.getTasks();
+    this.tasks = this.getServices.getTasks(this.id);
 
     this.tasks.subscribe(
         res=> {
@@ -55,7 +58,26 @@ export class TodoPage {
 
   }
 
-  newTask(){
+  makeDone(key){
+    this.getServices.doneTask(key);
+  }
 
+  onChange(){
+    if(this.status){
+      this.openForm();
+      this.status=false;
+    }
+    else{
+      this.newTask();
+      this.status=true;
+    }
+  }
+
+  openForm(){
+    console.log("Abrindo o form para criar tarefa");
+  }
+
+  newTask(){
+    console.log("Criar nova tarefa!");
   }
 }
