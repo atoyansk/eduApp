@@ -25,4 +25,17 @@ page-todo {
         width: 130px;
       }
 
+      .listOption{
+          background-color: transparent;
+          border: 1px solid #EEE !important;
+      }
+
+      .item-md {
+        padding-left: 33px;
+      }
+
+      .item-md p {
+          font-size: 1.3rem;
+      }
+
 }

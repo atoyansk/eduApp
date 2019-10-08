@@ -23,4 +23,22 @@ export class GetServicesProvider {
     })
   }
 
+  getTasks(){
+    return this.db.list('tasks/').snapshotChanges()
+    .map(changes =>{
+      return changes.map(c=> {
+        const data = c.payload.val();
+        const id = c.payload.key;
+        return { id, ...data };
+      });
+    })
+  }
+
+  createTask(){
+    this.db.list('tasks/').push({ 
+      name: task.name, 
+      description: task.description 
+    })
+  }
+
 }

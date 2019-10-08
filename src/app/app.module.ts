@@ -21,6 +21,8 @@ import { TasksPageModule } from '../pages/tasks/tasks.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { GetServicesProvider } from '../providers/get-services/get-services';
 
+import { ComponentsModule } from '../components/components.module';
+
 import { FirebaseConfig } from './firebase.credentials';
 
 
@@ -41,6 +43,7 @@ import { FirebaseConfig } from './firebase.credentials';
     AngularFireAuthModule,
     ReactiveFormsModule,
     FormsModule,
+    ComponentsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
