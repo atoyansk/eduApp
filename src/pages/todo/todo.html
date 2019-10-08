@@ -5,20 +5,29 @@
   <h3>{{ name }}</h3>
 </ion-header>
 
-<ion-content padding>
+<ion-content no-padding>
   <loading-spinner *ngIf="showSpinner"></loading-spinner>
   <ion-list>
     <ion-item-sliding *ngFor="let task of tasks | async">
       <ion-item text-wrap>
-        <h3>{{ task.name }}</h3>
-        <p>{{ task.description }}</p>
+        <ion-row>
+          <ion-col col-2>
+            <button ion-button class="checkDone">
+              <ion-icon name="radio-button-off" color="primary"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col col-9>
+            <h3>{{ task.name }}</h3>
+            <p>{{ task.description }}</p>
+          </ion-col> 
+        </ion-row>
       </ion-item>
       <ion-item-options side="right">
         <button ion-button (click)="editTask(task)" class="listOption">
           <ion-icon name="create" color="secondary"></ion-icon>
         </button>
         <button ion-button (click)="removeTask(task.key)" class="listOption">
-          <ion-icon name="trash" color="danger"></ion-icon>
+            <ion-icon name="trash" color="danger"></ion-icon>
         </button>
       </ion-item-options>
     </ion-item-sliding>

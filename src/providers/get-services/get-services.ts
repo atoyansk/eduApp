@@ -36,8 +36,8 @@ export class GetServicesProvider {
 
   createTask(){
     this.db.list('tasks/').push({ 
-      name: task.name, 
-      description: task.description 
+      // name: task.name, 
+      // description: task.description 
     })
   }
 
