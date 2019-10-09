@@ -9,7 +9,7 @@
   <loading-spinner *ngIf="showSpinner"></loading-spinner>
   <ion-list>
     <ion-item-sliding *ngFor="let task of tasks | async">
-      <ion-item text-wrap>
+      <ion-item text-wrap [class.doneItem]="task.done === true">
         <ion-row>
           <ion-col col-2>
             <button ion-button class="checkDone" (click)="makeDone(task.id)">
@@ -23,7 +23,7 @@
           </ion-col> 
         </ion-row>
       </ion-item>
-      <ion-item-options side="right">
+      <ion-item-options side="right" *ngIf="task.done === false">
         <button ion-button (click)="editTask(task)" class="listOption">
           <ion-icon name="create" color="secondary"></ion-icon>
         </button>

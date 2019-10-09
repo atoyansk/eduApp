@@ -66,5 +66,20 @@ page-todo {
       margin: 20px 10px;
     }
 
+    // .fab {
+    //   border-radius: 0;
+    //   width: 54vh;
+    //   height: 40px;
+    // }
 
+    .doneItem{
+      padding-left: 0;
+      border: 1px #F6F6F6 solid;
+      background-color: rgba(39, 166, 153, 0.2);
+      text-decoration: line-through;
+      color: #BBB; 
+    }
+    .doneItem p, .doneItem h3{
+      color: #BBB;
+    }
 }
