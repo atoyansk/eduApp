@@ -40,4 +40,8 @@ export class GetServicesProvider {
     this.db.list('tasks/').update(key, {done: true});
   }
 
+  remove(key: string) {
+    return this.db.list('tasks/').remove(key);
+  }
+
 }

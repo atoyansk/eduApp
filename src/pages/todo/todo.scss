@@ -29,8 +29,17 @@ page-todo {
           background-color: transparent;
           border: 1px solid #F6F6F6 !important;
       }
+      
+      .list-md {
+        margin: -1px 0 50px;
+      }
+      
       .list-md ion-item-options {
         border-bottom: 1px solid #F6F6F6;
+      }
+
+      .label-md {
+        margin: 0px 8px 0px 0;
       }
 
       .item-md {

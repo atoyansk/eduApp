@@ -57,7 +57,7 @@ export class TodoPage {
   }
 
   removeTask(key){
-
+    this.getServices.remove(key);
   }
 
   makeDone(key){

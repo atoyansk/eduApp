@@ -16,7 +16,7 @@ import 'rxjs/add/operator/map';
 export class NewTaskPage {
 
   public addTask: FormGroup;
-  id;
+  workId;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
@@ -31,7 +31,7 @@ export class NewTaskPage {
         id: this.fb.control('')
       });
 
-      this.id = navParams.get('task');
+      this.workId = navParams.get('task');
   }
 
   ionViewDidLoad() {
@@ -47,7 +47,7 @@ export class NewTaskPage {
       name: this.addTask.value.name, 
       description: this.addTask.value.description,
       done: false,
-      workId: this.id 
+      workId: this.workId 
     }).then(()=>{
       this.dismiss();
     })
