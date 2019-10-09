@@ -40,11 +40,4 @@ export class GetServicesProvider {
     this.db.list('tasks/').update(key, {done: true});
   }
 
-  createTask(name, description){
-    this.db.list('tasks/').push({ 
-      name: name, 
-      description: description 
-    })
-  }
-
 }

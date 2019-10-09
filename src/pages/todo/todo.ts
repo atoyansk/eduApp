@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Observable } from "rxjs/Observable";
 import * as firebase from 'firebase/app';
 import 'rxjs/add/operator/map';
 
-import { GetServicesProvider } from '../../providers/get-services/get-services'
+import { GetServicesProvider } from '../../providers/get-services/get-services';
+import { NewTaskPage } from '../new-task/new-task';
 
 
 @IonicPage()
@@ -22,10 +23,11 @@ export class TodoPage {
   tasks;
   showSpinner: boolean = true;
 
-  status=true;
+  //status=true;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
+    public modalCtrl: ModalController,
     public db: AngularFireDatabase,
     public getServices: GetServicesProvider) {
 
@@ -62,19 +64,21 @@ export class TodoPage {
     this.getServices.doneTask(key);
   }
 
-  onChange(){
-    if(this.status){
-      this.openForm();
-      this.status=false;
-    }
-    else{
-      this.newTask();
-      this.status=true;
-    }
-  }
+  // onChange(task){
+  //   if(this.status){
+  //     this.openForm(task);
+  //     this.status=false;
+  //   }
+  //   else{
+  //     this.newTask();
+  //     this.status=true;
+  //   }
+  // }
 
-  openForm(){
+  openForm(task){
     console.log("Abrindo o form para criar tarefa");
+    let newTaskModal = this.modalCtrl.create(NewTaskPage, {task}, {cssClass:"cont-modal"});
+    newTaskModal.present();
   }
 
   newTask(){

@@ -1,0 +1,28 @@
+<div class="mymodal">
+    <div class="modal-header">
+      <h3 class="modal-title">Add New Task</h3>
+      <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="addTask" novalidate>
+          <ion-input type="hidden" formControlName="id" value="{{id}}"></ion-input>
+          <ion-item no-padding>
+            <ion-label floating>Add a task name</ion-label>
+            <ion-input type="text" formControlName="name"></ion-input>
+          </ion-item>
+          <ion-item no-padding>
+            <ion-label floating>Add a task description</ion-label>
+            <ion-input type="text" formControlName="description"></ion-input>
+          </ion-item>
+          <ion-footer no-shadow padding>
+              <ion-toolbar transparent position="bottom" text-center>
+                <button ion-button type="submit" (click)="newTask()" block>
+                    <ion-icon name="add"></ion-icon>
+                </button>
+              </ion-toolbar>
+          </ion-footer>
+        </form>
+    </div>
+</div>
