@@ -20,9 +20,30 @@ page-todo {
     h3 {
         color: #6900c7;
         margin: 0 16px;
-        font-size: 2rem;
+        font-size: 1.8rem;
         font-weight: 500;
-        width: 130px;
+        width: 160px;
+      }
+      #subtitle {
+        color: #6900c7;
+        margin: 0 16px;
+        font-size: 1.3rem;
+        font-weight: 500;
+        width: 140px;
+        position: absolute;
+        bottom: 4px;
+      }
+
+      #pct{
+        color: #6900c7;
+        margin: 0 16px;
+        font-size: 1.3rem;
+        font-weight: 500;
+        width: 35px;
+        position: absolute;
+        bottom: 4px;
+        right: 10px;
+        text-align: right;
       }
 
       .listOption{
@@ -33,7 +54,7 @@ page-todo {
       .list-md {
         margin: -1px 0 50px;
       }
-      
+
       .list-md ion-item-options {
         border-bottom: 1px solid #F6F6F6;
       }

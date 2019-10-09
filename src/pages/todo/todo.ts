@@ -18,10 +18,14 @@ export class TodoPage {
 
   data;
   name;
+  delivery;
   id;
 
   tasks;
   showSpinner: boolean = true;
+  total: number = 0;
+  done: number;
+  concluded: number = 0;
 
   //status=true;
 
@@ -33,6 +37,7 @@ export class TodoPage {
 
     this.data = navParams.get('data');
     this.name = this.data.name;
+    this.delivery = this.data.deliveryDate;
     this.id = this.data.id;
 
     this.listTasks();
@@ -49,6 +54,18 @@ export class TodoPage {
         res=> {
           console.log(res);
           this.showSpinner = false;
+          this.done = 0;
+          res.forEach(r => {
+            if(r.done === true){
+              this.done = this.done + 1
+              console.log(this.done)
+            }
+          })
+          this.total = Object.keys(res).length;
+
+          console.log("Total: " + this.total, "Done: " + this.done);
+          this.concluded = Math.round(this.done * 100 / this.total);
+          console.log(this.concluded);
         })     
   }
 
