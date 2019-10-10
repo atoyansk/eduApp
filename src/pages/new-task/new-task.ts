@@ -73,14 +73,13 @@ export class NewTaskPage {
   }
 
   newTask(){
-    this.db.list('tasks/').push({ 
+    this.taskServices.createTask({ 
       name: this.addTask.value.name, 
       description: this.addTask.value.description,
       done: false,
       workId: this.workId 
-    }).then(()=>{
-      this.dismiss();
     })
+    this.dismiss();
   }
 
   upTask(key){

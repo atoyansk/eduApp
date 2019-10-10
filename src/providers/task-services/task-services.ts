@@ -42,4 +42,9 @@ export class TaskServicesProvider {
       .catch(error => console.log(error))
   }
 
+  createTask(value: any) {
+    this.db.list(this.basePath).push(value)
+      .catch(error => console.log(error))
+  }
+
 }
