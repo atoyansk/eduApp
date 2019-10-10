@@ -38,7 +38,7 @@ export class TaskServicesProvider {
   }
 
   updateTask(key: string, value: any): void {
-    this.task.update(key, value)
+    this.db.list(this.basePath).update(key, value)
       .catch(error => console.log(error))
   }
 

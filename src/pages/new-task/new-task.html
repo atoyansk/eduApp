@@ -5,9 +5,9 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <div class="modal-body">
+    <div class="modal-body" *ngIf="workId">
         <form [formGroup]="addTask" novalidate>
-          <ion-input type="hidden" formControlName="id" value="{{id}}"></ion-input>
+          <ion-input type="hidden" formControlName="id" value="{{workId}}"></ion-input>
           <ion-item no-padding>
             <ion-label floating>Add a task name</ion-label>
             <ion-input type="text" formControlName="name"></ion-input>
@@ -25,4 +25,24 @@
           </ion-footer>
         </form>
     </div>
+
+    <div class="modal-body" *ngIf="task">
+      <form [formGroup]="updateTask" novalidate>
+        <ion-item no-padding>
+          <ion-label floating>Task name</ion-label>
+          <ion-input type="text" formControlName="name"></ion-input>
+        </ion-item>
+        <ion-item no-padding>
+          <ion-label floating>Task description</ion-label>
+          <ion-input type="text" formControlName="description"></ion-input>
+        </ion-item>
+        <ion-footer no-shadow padding>
+            <ion-toolbar transparent position="bottom" text-center>
+              <button ion-button type="submit" (click)="upTask(upKey)" block color="secondary">
+                <ion-icon name="create"></ion-icon>
+              </button>
+            </ion-toolbar>
+        </ion-footer>
+      </form>
+  </div>
 </div>
