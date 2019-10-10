@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { FormBuilder, FormGroup, FormArray, Validators, FormControl } from '@angular/forms';
 
-import { GetServicesProvider } from '../../providers/get-services/get-services';
+import { TaskServicesProvider } from '../../providers/task-services/task-services';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from "rxjs/Observable";
 import * as firebase from 'firebase/app';
 import 'rxjs/add/operator/map';
+
+import { Task } from './task-model';
 
 @IonicPage()
 @Component({
@@ -17,13 +19,16 @@ export class NewTaskPage {
 
   public addTask: FormGroup;
   workId;
+  task;
+
+  title: string;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     public viewCtrl: ViewController,
     public fb: FormBuilder,
     public db: AngularFireDatabase,
-    public getServices: GetServicesProvider) {
+    public taskServices: TaskServicesProvider) {
 
       this.addTask = fb.group({
         name: new FormControl(''),
@@ -31,7 +36,14 @@ export class NewTaskPage {
         id: this.fb.control('')
       });
 
-      this.workId = navParams.get('task');
+      this.workId = navParams.get('workId');
+      this.task = navParams.get('task');
+
+      if(this.task){
+        this.title = "Update a Task"
+      }else{
+        this.title = "Add a New Task"
+      }
   }
 
   ionViewDidLoad() {

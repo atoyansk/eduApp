@@ -5,7 +5,7 @@ import { Observable } from "rxjs/Observable";
 import * as firebase from 'firebase/app';
 import 'rxjs/add/operator/map';
 
-import { GetServicesProvider } from '../../providers/get-services/get-services'
+import { WorkServicesProvider } from '../../providers/work-services/work-services'
 import { TodoPage } from '../todo/todo';
 
 @IonicPage()
@@ -21,7 +21,7 @@ export class WorksPage {
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     public db: AngularFireDatabase,
-    public getServices: GetServicesProvider) {
+    public workServices: WorkServicesProvider) {
 
       this.listWorks();
 
@@ -32,7 +32,7 @@ export class WorksPage {
   }
 
   listWorks(){
-    this.works = this.getServices.getWorks();
+    this.works = this.workServices.getWorks();
 
     this.works.subscribe(
         res=> {

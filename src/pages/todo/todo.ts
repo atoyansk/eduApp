@@ -5,7 +5,7 @@ import { Observable } from "rxjs/Observable";
 import * as firebase from 'firebase/app';
 import 'rxjs/add/operator/map';
 
-import { GetServicesProvider } from '../../providers/get-services/get-services';
+import { TaskServicesProvider } from '../../providers/task-services/task-services';
 import { NewTaskPage } from '../new-task/new-task';
 
 
@@ -33,7 +33,7 @@ export class TodoPage {
     public navParams: NavParams,
     public modalCtrl: ModalController,
     public db: AngularFireDatabase,
-    public getServices: GetServicesProvider) {
+    public taskServices: TaskServicesProvider) {
 
     this.data = navParams.get('data');
     this.name = this.data.name;
@@ -41,6 +41,7 @@ export class TodoPage {
     this.id = this.data.id;
 
     this.listTasks();
+
   }
 
   ionViewDidLoad() {
@@ -48,7 +49,7 @@ export class TodoPage {
   }
 
   listTasks(){
-    this.tasks = this.getServices.getTasks(this.id);
+    this.tasks = this.taskServices.getTasks(this.id);
 
     this.tasks.subscribe(
         res=> {
@@ -64,41 +65,34 @@ export class TodoPage {
           this.total = Object.keys(res).length;
 
           console.log("Total: " + this.total, "Done: " + this.done);
-          this.concluded = Math.round(this.done * 100 / this.total);
-          console.log(this.concluded);
+
+          if(this.total && this.done){
+            this.concluded = Math.round(this.done * 100 / this.total);
+            console.log(this.concluded);
+          }else{
+            this.concluded = 0;
+          }
+          
         })     
   }
 
   editTask(task){
-
+    let newTaskModal = this.modalCtrl.create(NewTaskPage, {task}, {cssClass:"cont-modal"});
+    newTaskModal.present();
+    console.log(task);
   }
 
   removeTask(key){
-    this.getServices.remove(key);
+    this.taskServices.remove(key);
   }
 
   makeDone(key){
-    this.getServices.doneTask(key);
+    this.taskServices.doneTask(key);
   }
 
-  // onChange(task){
-  //   if(this.status){
-  //     this.openForm(task);
-  //     this.status=false;
-  //   }
-  //   else{
-  //     this.newTask();
-  //     this.status=true;
-  //   }
-  // }
-
-  openForm(task){
-    console.log("Abrindo o form para criar tarefa");
-    let newTaskModal = this.modalCtrl.create(NewTaskPage, {task}, {cssClass:"cont-modal"});
+  newTask(workId){
+    let newTaskModal = this.modalCtrl.create(NewTaskPage, {workId}, {cssClass:"cont-modal"});
     newTaskModal.present();
-  }
-
-  newTask(){
-    console.log("Criar nova tarefa!");
+    console.log(workId);
   }
 }
