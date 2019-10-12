@@ -6,6 +6,7 @@ import * as firebase from 'firebase/app';
 import 'rxjs/add/operator/map';
 
 import { TaskServicesProvider } from '../../providers/task-services/task-services';
+import { WorkServicesProvider } from '../../providers/work-services/work-services';
 import { NewTaskPage } from '../new-task/new-task';
 
 
@@ -27,13 +28,12 @@ export class TodoPage {
   done: number;
   concluded: number = 0;
 
-  //status=true;
-
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     public modalCtrl: ModalController,
     public db: AngularFireDatabase,
-    public taskServices: TaskServicesProvider) {
+    public taskServices: TaskServicesProvider,
+    public workServices: WorkServicesProvider) {
 
     this.data = navParams.get('data');
     this.name = this.data.name;
@@ -69,6 +69,7 @@ export class TodoPage {
           if(this.total && this.done){
             this.concluded = Math.round(this.done * 100 / this.total);
             console.log(this.concluded);
+            this.workServices.pctWork(this.id, {concluded: this.concluded});
           }else{
             this.concluded = 0;
           }

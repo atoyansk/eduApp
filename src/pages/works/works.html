@@ -3,6 +3,14 @@
   <ion-card *ngFor="let wk of works | async" (click)="goTodo(wk)" id="cont{{wk.subject}}">
     <ion-card-content>
       <span>{{ wk.name }}</span>
+      <div class="status">
+        {{ wk.concluded }}%
+        <!-- <round-progress [current]="wk.concluded" [max]="100"></round-progress> -->
+        <!-- <div *ngIf="wk.concluded === 100">
+          <ion-icon name="trophy"></ion-icon>
+          <button ion-button class="archiveit">Archive it</button>
+        </div> -->
+      </div>
     </ion-card-content>
   </ion-card>
 </ion-list>

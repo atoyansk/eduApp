@@ -25,4 +25,9 @@ export class WorkServicesProvider {
     })
   }
 
+  pctWork(key: string, value: any): void {
+    this.db.list(this.basePath).update(key, value)
+      .catch(error => console.log(error))
+  }
+
 }

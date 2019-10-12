@@ -24,9 +24,9 @@ import { TaskServicesProvider } from '../providers/task-services/task-services';
 import { WorkServicesProvider } from '../providers/work-services/work-services';
 
 import { ComponentsModule } from '../components/components.module';
+import { RoundProgressModule } from 'angular-svg-round-progressbar';
 
 import { FirebaseConfig } from './firebase.credentials';
-
 
 
 @NgModule({
@@ -47,7 +47,9 @@ import { FirebaseConfig } from './firebase.credentials';
     AngularFireAuthModule,
     ReactiveFormsModule,
     FormsModule,
+    RoundProgressModule,
     ComponentsModule
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [

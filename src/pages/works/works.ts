@@ -4,6 +4,7 @@ import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Observable } from "rxjs/Observable";
 import * as firebase from 'firebase/app';
 import 'rxjs/add/operator/map';
+import { RoundProgressModule } from 'angular-svg-round-progressbar';
 
 import { WorkServicesProvider } from '../../providers/work-services/work-services'
 import { TodoPage } from '../todo/todo';
