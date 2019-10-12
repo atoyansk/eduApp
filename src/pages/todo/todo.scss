@@ -31,19 +31,22 @@ page-todo {
         font-weight: 500;
         width: 140px;
         position: absolute;
-        bottom: 4px;
+        bottom: 12px;
       }
 
-      #pct{
-        color: #6900c7;
-        margin: 0 16px;
-        font-size: 1.3rem;
-        font-weight: 500;
-        width: 35px;
+      .pct{
+        width: 100%;
         position: absolute;
-        bottom: 4px;
-        right: 10px;
+        bottom: 0;
+        right: 0;
         text-align: right;
+        left: 0;
+      }
+      .pct span{
+        margin-right: 5px;
+        color: #6900c7;
+        font-size: 1.3rem;
+        font-weight: 600;
       }
 
       .listOption{

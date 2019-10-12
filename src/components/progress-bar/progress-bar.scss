@@ -1,0 +1,19 @@
+progress-bar {
+    .progress-outer {
+        width: 85%;
+        margin-bottom: -16px;
+        text-align: right;
+        background-color: #f4f4f4;
+        color: color($colors, primary);
+    }
+
+    .progress-inner {
+        min-width: 0%;
+        white-space: nowrap;
+        overflow: hidden;
+        height: 5px;
+        background-color: color($colors, primary);
+        transition: 1s;
+        transition-timing-function: ease-out;
+    }
+}

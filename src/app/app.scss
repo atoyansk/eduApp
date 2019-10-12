@@ -209,14 +209,14 @@
   
   .close{
     position: absolute !important;
-    top:2px;
-    right:3px;
+    top: 2px;
+    right: 3px;
     border-radius: 5%;
-    background-color: crimson;
-    color: #FFF;
+    background-color: transparent;
+    color: #CCC;
     padding: 5px;
     width: 30px;
-    font-size: large;
+    font-size: 30px;
   }
   
   .modal-header{

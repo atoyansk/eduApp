@@ -3,8 +3,9 @@
     
   </ion-navbar>
   <h3>{{ name }}</h3>
-  <p id="subtitle">Delivery by {{ delivery }}</p>
-  <p id="pct">{{ concluded }}%</p>
+  <p id="subtitle">Until {{ delivery }}</p>
+  <div class="pct"><progress-bar [progress]="concluded"></progress-bar><span>{{concluded}}%</span></div>
+  
 </ion-header>
 
 <ion-content no-padding>
