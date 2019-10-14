@@ -31,6 +31,7 @@ export class TodoPage {
   today = moment().format("YYYY-MM-DD");
 
   countDown;
+  msgCount: string;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
@@ -87,6 +88,14 @@ export class TodoPage {
     let date2 = moment(this.delivery, "YYYY-MM-DD"); 
     let duration = moment.duration(date2.diff(date1));
     this.countDown = Math.round(duration.asDays());
+
+    if(this.countDown === 0){
+      this.msgCount = "It's today!";
+    }else if (this.countDown === 1){
+      this.msgCount = "It's tomorrow!";
+    }else{
+      this.msgCount = "You have " + this.countDown + " days.";
+    }
 }
 
   editTask(task){
