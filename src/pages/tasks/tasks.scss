@@ -24,15 +24,14 @@ page-tasks {
         border-radius: 50%;
         width: 30px;
         height: 30px;
-        border: 1px solid #CCC;
+        border: 2px solid color($colors, primary);
     }
 
     h3 {
       font-size: 2.3rem;
       font-weight: 500;
     }
-
-}
+  }
 
 .toolbar-md {
   padding: 4px;

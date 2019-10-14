@@ -11,7 +11,7 @@ page-date {
         height: 85%;
       }
     
-      shrinking-segment-header {
+    shrinking-segment-header {
         background-color: transparent;
         color: #6900c7;
         display: flex;
@@ -23,7 +23,7 @@ page-date {
             border-radius: 50%;
             width: 30px;
             height: 30px;
-            border: 1px solid #CCC;
+            border: 2px solid color($colors, primary);
         }
     
         h3 {
