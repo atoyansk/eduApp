@@ -3,7 +3,7 @@
     
   </ion-navbar>
   <h3>{{ name }}</h3>
-  <p id="subtitle">Until {{ delivery }}</p>
+  <p id="subtitle">Until {{ delivery | date: 'dd/MM/yyyy' }}. You have {{countDown}} days.</p>
   <div class="pct"><progress-bar [progress]="concluded"></progress-bar><span>{{concluded}}%</span></div>
   
 </ion-header>

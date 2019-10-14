@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
 import { TaskServicesProvider } from '../../providers/task-services/task-services';
 import { WorkServicesProvider } from '../../providers/work-services/work-services';
 import { NewTaskPage } from '../new-task/new-task';
-
+import * as moment from 'moment';
 
 @IonicPage()
 @Component({
@@ -28,6 +28,10 @@ export class TodoPage {
   done: number;
   concluded: number = 0;
 
+  today = moment().format("YYYY-MM-DD");
+
+  countDown;
+
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     public modalCtrl: ModalController,
@@ -41,6 +45,7 @@ export class TodoPage {
     this.id = this.data.id;
 
     this.listTasks();
+    this.dateDifference();
 
   }
 
@@ -76,6 +81,13 @@ export class TodoPage {
           
         })     
   }
+
+  dateDifference() {
+    let date1 = moment(this.today, "YYYY-MM-DD");
+    let date2 = moment(this.delivery, "YYYY-MM-DD"); 
+    let duration = moment.duration(date2.diff(date1));
+    this.countDown = Math.round(duration.asDays());
+}
 
   editTask(task){
     let newTaskModal = this.modalCtrl.create(NewTaskPage, {task}, {cssClass:"cont-modal"});

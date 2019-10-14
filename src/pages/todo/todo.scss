@@ -1,6 +1,13 @@
 page-todo {
+
+  div .fixed-content, 
+  ion-content .fixed-content{margin-top:170px;}
+
+  .scroll-content {
+      margin-top: 170px !important;;
+  }
     ion-header {
-        height: 150px;
+        height: 170px;
         background-image: 
         url('../../assets/imgs/topo-tasks.png'), 
         linear-gradient(to top right,#AC5E98,#6B63D3);
@@ -26,12 +33,14 @@ page-todo {
       }
       #subtitle {
         color: #6900c7;
-        margin: 0 16px;
+        padding: 8px 16px;
         font-size: 1.3rem;
         font-weight: 500;
-        width: 140px;
+        width: 100%;
         position: absolute;
-        bottom: 12px;
+        bottom: 7px;
+        margin-block-start: 0;
+        margin-block-end: 0;
       }
 
       .pct{
