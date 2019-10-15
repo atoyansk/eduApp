@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
 import { NewCalendarPage } from '../new-calendar/new-calendar';
 import { AngularFireDatabase } from '@angular/fire/database';
-
-import { Calendar } from '@ionic-native/calendar';
+import * as moment from 'moment';
 
 @IonicPage()
 @Component({
@@ -12,163 +11,65 @@ import { Calendar } from '@ionic-native/calendar';
 })
 export class CalendarPage {
 
-  date: any;
-  daysInThisMonth: any;
-  daysInLastMonth: any;
-  daysInNextMonth: any;
-  monthNames: string[];
-  currentMonth: any;
-  currentYear: any;
-  currentDate: any;
-
-  showSpinner: boolean = true;
-
-  eventList: any;
-  selectedEvent: any;
-  isSelected: any;
+  eventSource = [];
+  viewTitle: string;
+  selectedDay = new Date();
+ 
+  calendar = {
+    mode: 'month',
+    currentDate: new Date()
+  };
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     public modalCtrl: ModalController,
     public db: AngularFireDatabase,
-    private calendar: Calendar,
     public alertCtrl: AlertController) {
 
-    this.date = new Date();
-    this.monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-    this.getDaysOfMonth();
-    this.loadEventThisMonth();
   }
 
   ionViewDidLoad() {}
 
-  getDaysOfMonth() {
-    this.daysInThisMonth = new Array();
-    this.daysInLastMonth = new Array();
-    this.daysInNextMonth = new Array();
-    this.currentMonth = this.monthNames[this.date.getMonth()];
-    this.currentYear = this.date.getFullYear();
-    if(this.date.getMonth() === new Date().getMonth()) {
-      this.currentDate = new Date().getDate();
-    } else {
-      this.currentDate = 999;
-    }
-
-    //this.showSpinner = false;
-  
-    var firstDayThisMonth = new Date(this.date.getFullYear(), this.date.getMonth(), 1).getDay();
-    var prevNumOfDays = new Date(this.date.getFullYear(), this.date.getMonth(), 0).getDate();
-    for(var i = prevNumOfDays-(firstDayThisMonth-1); i <= prevNumOfDays; i++) {
-      this.daysInLastMonth.push(i);
-    }
-  
-    var thisNumOfDays = new Date(this.date.getFullYear(), this.date.getMonth()+1, 0).getDate();
-    for (var j = 0; j < thisNumOfDays; j++) {
-      this.daysInThisMonth.push(j+1);
-    }
-  
-    var lastDayThisMonth = new Date(this.date.getFullYear(), this.date.getMonth()+1, 0).getDay();
-    var nextNumOfDays = new Date(this.date.getFullYear(), this.date.getMonth()+2, 0).getDate();
-    for (var k = 0; k < (6-lastDayThisMonth); k++) {
-      this.daysInNextMonth.push(k+1);
-    }
-    var totalDays = this.daysInLastMonth.length+this.daysInThisMonth.length+this.daysInNextMonth.length;
-    if(totalDays<36) {
-      for(var p = (7-lastDayThisMonth); p < ((7-lastDayThisMonth)+7); p++) {
-        this.daysInNextMonth.push(p);
-      }
-    }
-  }
-
-  goToLastMonth() {
-    this.date = new Date(this.date.getFullYear(), this.date.getMonth(), 0);
-    this.getDaysOfMonth();
-  }
-
-  goToNextMonth() {
-    this.date = new Date(this.date.getFullYear(), this.date.getMonth()+2, 0);
-    this.getDaysOfMonth();
-  }
-
-  loadEventThisMonth() {
-    this.eventList = new Array();
-    var startDate = new Date(this.date.getFullYear(), this.date.getMonth(), 1);
-    var endDate = new Date(this.date.getFullYear(), this.date.getMonth()+1, 0);
-    this.calendar.listEventsInRange(startDate, endDate).then(
-      (msg) => {
-        msg.forEach(item => {
-          this.eventList.push(item);
-        });
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-  }
-
-  checkEvent(day) {
-    var hasEvent = false;
-    var thisDate1 = this.date.getFullYear()+"-"+(this.date.getMonth()+1)+"-"+day+" 00:00:00";
-    var thisDate2 = this.date.getFullYear()+"-"+(this.date.getMonth()+1)+"-"+day+" 23:59:59";
-    this.eventList.forEach(event => {
-      if(((event.startDate >= thisDate1) && (event.startDate <= thisDate2)) || ((event.endDate >= thisDate1) && (event.endDate <= thisDate2))) {
-        hasEvent = true;
-      }
-    });
-    return hasEvent;
-  }
-
-  selectDate(day) {
-    this.isSelected = false;
-    this.selectedEvent = new Array();
-    var thisDate1 = this.date.getFullYear()+"-"+(this.date.getMonth()+1)+"-"+day+" 00:00:00";
-    var thisDate2 = this.date.getFullYear()+"-"+(this.date.getMonth()+1)+"-"+day+" 23:59:59";
-    this.eventList.forEach(event => {
-      if(((event.startDate >= thisDate1) && (event.startDate <= thisDate2)) || ((event.endDate >= thisDate1) && (event.endDate <= thisDate2))) {
-        this.isSelected = true;
-        this.selectedEvent.push(event);
-        console.log(this.selectedEvent);
-      }
-    });
-  }
-
-  deleteEvent(evt) {
-    // console.log(new Date(evt.startDate.replace(/\s/, 'T')));
-    // console.log(new Date(evt.endDate.replace(/\s/, 'T')));
-    let alert = this.alertCtrl.create({
-      title: 'Confirm Delete',
-      message: 'Are you sure want to delete this event?',
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Ok',
-          handler: () => {
-            this.calendar.deleteEvent(evt.title, evt.location, evt.notes, new Date(evt.startDate.replace(/\s/, 'T')), new Date(evt.endDate.replace(/\s/, 'T'))).then(
-              (msg) => {
-                console.log(msg);
-                this.loadEventThisMonth();
-                this.selectDate(new Date(evt.startDate.replace(/\s/, 'T')).getDate());
-              },
-              (err) => {
-                console.log(err);
-              }
-            )
-          }
-        }
-      ]
-    });
-    alert.present();
-  }
 
   addCalendar(){
-    let newCalModal = this.modalCtrl.create(NewCalendarPage, {cssClass:"cont-modal"});
+    let newCalModal = this.modalCtrl.create(NewCalendarPage, {selectedDay: this.selectedDay}, {cssClass:"cont-modal"});
     newCalModal.present();
+
+    newCalModal.onDidDismiss(data => {
+      if (data) {
+        let eventData = data;
+ 
+        eventData.startTime = new Date(data.startTime);
+        eventData.endTime = new Date(data.endTime);
+ 
+        let events = this.eventSource;
+        events.push(eventData);
+        this.eventSource = [];
+        setTimeout(() => {
+          this.eventSource = events;
+        });
+      }
+    });
+  }
+
+  onViewTitleChanged(title) {
+    this.viewTitle = title;
+  }
+ 
+  onEventSelected(event) {
+    let start = moment(event.startTime).format('LLLL');
+    let end = moment(event.endTime).format('LLLL');
+    
+    let alert = this.alertCtrl.create({
+      title: '' + event.title,
+      subTitle: 'From: ' + start + '<br>To: ' + end,
+      buttons: ['OK']
+    })
+    alert.present();
+  }
+ 
+  onTimeSelected(ev) {
+    this.selectedDay = ev.selectedTime;
   }
 
 }

@@ -6,6 +6,7 @@ import { MorePage } from '../more/more';
 import { HomeworksPage } from '../homeworks/homeworks';
 
 import { ComponentsModule } from '../../components/components.module';
+import { RoundProgressModule } from 'angular-svg-round-progressbar';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ComponentsModule } from '../../components/components.module';
   ],
   imports: [
     IonicPageModule.forChild(TasksPage),
-    ComponentsModule
+    ComponentsModule,
+    RoundProgressModule
   ],
 })
 export class TasksPageModule {}

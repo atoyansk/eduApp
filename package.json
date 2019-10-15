@@ -21,7 +21,6 @@
     "@angular/http": "5.2.11",
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
-    "@ionic-native/calendar": "^4.20.0",
     "@ionic-native/core": "~4.20.0",
     "@ionic-native/firebase": "^4.17.0",
     "@ionic-native/native-page-transitions": "^4.20.0",
@@ -33,10 +32,11 @@
     "cordova-android": "8.1.0",
     "cordova-plugin-androidx": "1.0.2",
     "cordova-plugin-androidx-adapter": "1.1.0",
-    "cordova-plugin-calendar": "5.1.4",
     "cordova-plugin-firebasex": "6.1.0",
     "firebase": "^5.5.3",
+    "intl": "^1.2.5",
     "ionic-angular": "3.9.5",
+    "ionic2-calendar": "^0.4.6",
     "ionicons": "3.0.0",
     "moment": "^2.24.0",
     "ng-circle-progress": "^1.4.0",
@@ -83,8 +83,7 @@
         "ANDROID_CRASHLYTICS_VERSION": "2.10.1",
         "ANDROID_CRASHLYTICS_NDK_VERSION": "2.1.0",
         "ANDROID_SHORTCUTBADGER_VERSION": "1.1.22"
-      },
-      "cordova-plugin-calendar": {}
+      }
     },
     "platforms": [
       "android"

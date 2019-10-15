@@ -1,73 +1,31 @@
 page-calendar {
 
-  [col-1] {
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 0 8.33333%;
-    -ms-flex: 0 0 8.33333%;
-    flex: 0 0 14.285714285714286%;
-    width: 14.285714285714286%;
-    max-width: 14.285714285714286%;
-  }
-  .col {
-    text-align: center;
-    padding: 5px;
-  }
-  .last-month, .next-month {
-    color: #999999;
-    font-size: 90%;
-  }
-  .currentDate, .otherDate {
-    padding: 5px;
-  }
-  .currentDate {
-    font-weight: bold;
-    background-color: color($colors, secondary);
-    color: color($colors, branco);
-    border-radius: 22%;
-  }
-  .calendar-header {
-    background-color: color($colors, primary);
+  .titleCalendar{
+    background-color: #6900c7;
     color: color($colors, branco);
     font-weight: 600;
-    padding: 0;
+    padding: 6px;
   }
-  .event-bullet {
-    margin: 2px auto;
-    height: 5px;
-    width: 5px;
-    background-color: green;
-    border-radius: 30px;
+
+  .table > tbody > tr > td{
+    line-height: 10px !important;
   }
-  .selected-date {
-    width: 20px;
-    height: 2px;
-    background-color: blue;
+
+  th{
+    line-height: 12px !important;
+    padding: 5px !important;
   }
-  .unselected-date {
-    border: none;
+
+  .swiper-slide{
+    font-size: 15px !important;
   }
-  .calendar-body {
-    .grid {
-      padding: 0;
-    }
-    .col:last-child {
-      border-right: none;
-    }
-    .calendar-weekday, .calendar-date {
-      text-align: center;
-      margin: 0;
-    }
-    .calendar-weekday {
-      border-bottom: solid 1px color($colors, primary);
-      background-color: #6900c7;
-      color: color($colors, branco);
-      font-weight: normal;
-      line-height: 1rem;
-      font-size: 1.3rem;
-    }
-    .calendar-date {
-      border-top: solid 1px color($colors, primary);
-      border-bottom: solid 1px color($colors, primary);
-    }
+
+  thead {
+    background-color: color($colors, primary);
+    color: color($colors, branco);
+  }
+
+  .monthview-selected {
+    background-color: color($colors, secondary) !important;
   }
 }

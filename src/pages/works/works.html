@@ -4,8 +4,7 @@
     <ion-card-content>
       <span>{{ wk.name }}</span>
       <div class="status">
-        {{ wk.concluded }}%
-        <!-- <round-progress [current]="wk.concluded" [max]="100"></round-progress> -->
+        <round-progress [current]="wk.concluded" [max]="100" [radius]="20" [stroke]="7" [background]="'#eaeaea'" [color]="'#4527A0'"></round-progress>
         <!-- <div *ngIf="wk.concluded === 100">
           <ion-icon name="trophy"></ion-icon>
           <button ion-button class="archiveit">Archive it</button>

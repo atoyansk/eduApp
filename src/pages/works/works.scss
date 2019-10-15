@@ -94,7 +94,7 @@ page-works {
     .status{
         position: relative;
         color: color($colors, primary);
-        display: block;
+        display: inline-block;
         font-weight: 600;
     }
 }

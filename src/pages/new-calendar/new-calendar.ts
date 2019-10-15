@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { FormBuilder, FormGroup, FormArray, Validators, FormControl } from '@angular/forms';
 
-import { Calendar } from '@ionic-native/calendar';
-
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from "rxjs/Observable";
 import * as firebase from 'firebase/app';
@@ -24,8 +22,7 @@ export class NewCalendarPage {
     public navParams: NavParams,
     public viewCtrl: ViewController,
     public fb: FormBuilder,
-    public db: AngularFireDatabase,
-    private calendar: Calendar) {
+    public db: AngularFireDatabase) {
 
     this.addCalendar = fb.group({
       name: new FormControl(''),
@@ -45,18 +42,7 @@ export class NewCalendarPage {
   }
 
   newEvent(){
-    this.calendar.createEvent(this.addCalendar.value.name, 
-      this.addCalendar.value.location, 
-      this.addCalendar.value.notes, 
-      new Date(this.addCalendar.value.startDate), 
-      new Date(this.addCalendar.value.endDate)).then(
-      (msg) => {
-        this.dismiss();
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
+    
   }
 
 }

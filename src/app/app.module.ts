@@ -4,7 +4,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { NativePageTransitions } from '@ionic-native/native-page-transitions';
-import { Calendar } from '@ionic-native/calendar';
 
 import { AngularFireModule } from '@angular/fire/index';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -26,7 +25,6 @@ import { TaskServicesProvider } from '../providers/task-services/task-services';
 import { WorkServicesProvider } from '../providers/work-services/work-services';
 
 import { ComponentsModule } from '../components/components.module';
-import { RoundProgressModule } from 'angular-svg-round-progressbar';
 
 import { FirebaseConfig } from './firebase.credentials';
 
@@ -50,7 +48,6 @@ import { FirebaseConfig } from './firebase.credentials';
     AngularFireAuthModule,
     ReactiveFormsModule,
     FormsModule,
-    RoundProgressModule,
     ComponentsModule
     
   ],
@@ -69,8 +66,7 @@ import { FirebaseConfig } from './firebase.credentials';
     Firebase,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     TaskServicesProvider,
-    WorkServicesProvider,
-    Calendar
+    WorkServicesProvider
   ]
 })
 export class AppModule {}
