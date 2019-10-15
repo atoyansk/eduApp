@@ -1,0 +1,40 @@
+<div class="big-mymodal">
+  <div class="modal-header">
+    <h3 class="big-modal-title">Add New Event</h3>
+    <button type="button" class="big-close" aria-label="Close" (click)="dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="big-modal-body">
+      <form [formGroup]="addCalendar" novalidate>
+        <!-- <ion-input type="hidden" formControlName="id" value="{{workId}}"></ion-input> -->
+        <ion-item no-padding>
+          <ion-label floating>Add an event name</ion-label>
+          <ion-input type="text" formControlName="name"></ion-input>
+        </ion-item>
+        <ion-item no-padding>
+          <ion-label floating>Add an event location</ion-label>
+          <ion-input type="text" formControlName="location"></ion-input>
+        </ion-item>
+        <ion-item no-padding>
+          <ion-label floating>Add event notes</ion-label>
+          <ion-input type="text" formControlName="notes"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Start date</ion-label>
+          <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="MM/DD/YYYY" formControlName="startDate"></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>End date</ion-label>
+          <ion-datetime displayFormat="DD MMM YYYY" pickerFormat="MM/DD/YYYY" formControlName="endDate"></ion-datetime>
+        </ion-item>
+        <ion-footer no-shadow padding>
+            <ion-toolbar transparent position="bottom" text-center>
+              <button ion-button type="submit" (click)="newEvent()" block color="secondary">
+                  <ion-icon name="add"></ion-icon>
+              </button>
+            </ion-toolbar>
+        </ion-footer>
+      </form>
+  </div>
+</div>

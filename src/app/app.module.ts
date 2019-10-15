@@ -4,6 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { NativePageTransitions } from '@ionic-native/native-page-transitions';
+import { Calendar } from '@ionic-native/calendar';
 
 import { AngularFireModule } from '@angular/fire/index';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -15,6 +16,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { TodoPage } from '../pages/todo/todo';
 import { NewTaskPage } from '../pages/new-task/new-task';
+import { NewCalendarPage } from '../pages/new-calendar/new-calendar';
 
 import { DatePageModule } from '../pages/date/date.module';
 import { GradesPageModule } from '../pages/grades/grades.module';
@@ -34,7 +36,8 @@ import { FirebaseConfig } from './firebase.credentials';
     MyApp,
     HomePage,
     TodoPage,
-    NewTaskPage
+    NewTaskPage,
+    NewCalendarPage
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,8 @@ import { FirebaseConfig } from './firebase.credentials';
     MyApp,
     HomePage,
     TodoPage,
-    NewTaskPage
+    NewTaskPage,
+    NewCalendarPage
   ],
   providers: [
     StatusBar,
@@ -65,7 +69,8 @@ import { FirebaseConfig } from './firebase.credentials';
     Firebase,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     TaskServicesProvider,
-    WorkServicesProvider
+    WorkServicesProvider,
+    Calendar
   ]
 })
 export class AppModule {}

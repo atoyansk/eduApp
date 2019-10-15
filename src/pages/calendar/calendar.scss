@@ -29,7 +29,7 @@ page-calendar {
     background-color: color($colors, primary);
     color: color($colors, branco);
     font-weight: 600;
-    padding: 6px 0;
+    padding: 0;
   }
   .event-bullet {
     margin: 2px auto;
@@ -58,11 +58,12 @@ page-calendar {
       margin: 0;
     }
     .calendar-weekday {
-      font-weight: bold;
       border-bottom: solid 1px color($colors, primary);
       background-color: #6900c7;
       color: color($colors, branco);
       font-weight: normal;
+      line-height: 1rem;
+      font-size: 1.3rem;
     }
     .calendar-date {
       border-top: solid 1px color($colors, primary);
