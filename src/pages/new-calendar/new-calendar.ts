@@ -7,6 +7,8 @@ import { Observable } from "rxjs/Observable";
 import * as firebase from 'firebase/app';
 import 'rxjs/add/operator/map';
 
+import * as moment from 'moment';
+
 @IonicPage()
 @Component({
   selector: 'page-new-calendar',
@@ -14,9 +16,8 @@ import 'rxjs/add/operator/map';
 })
 export class NewCalendarPage {
 
-  public addCalendar: FormGroup;
-
-  event = { title: "", location: "", message: "", startDate: "", endDate: "" };
+  event = { startTime: new Date().toISOString(), endTime: new Date().toISOString(), allDay: false };
+  minDate = new Date().toISOString();
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
@@ -24,13 +25,10 @@ export class NewCalendarPage {
     public fb: FormBuilder,
     public db: AngularFireDatabase) {
 
-    this.addCalendar = fb.group({
-      name: new FormControl(''),
-      location: this.fb.control(''),
-      notes: this.fb.control(''),
-      startDate: this.fb.control(''),
-      endDate: this.fb.control('')
-    });
+
+    let preselectedDate = moment(this.navParams.get('selectedDay')).format();
+    this.event.startTime = preselectedDate;
+    this.event.endTime = preselectedDate;
   }
 
   ionViewDidLoad() {
@@ -42,7 +40,7 @@ export class NewCalendarPage {
   }
 
   newEvent(){
-    
+    this.viewCtrl.dismiss(this.event);
   }
 
 }
