@@ -1,7 +1,7 @@
 page-calendar {
 
   .titleCalendar{
-    background-color: #6900c7;
+    background-color: color($colors, primary);
     color: color($colors, branco);
     font-weight: 600;
     padding: 6px;
@@ -9,11 +9,13 @@ page-calendar {
 
   .table > tbody > tr > td{
     line-height: 10px !important;
+    border: none !important;
   }
 
   th{
-    line-height: 12px !important;
+    line-height: 18px !important;
     padding: 5px !important;
+    font-weight: normal;
   }
 
   .swiper-slide{
@@ -21,11 +23,31 @@ page-calendar {
   }
 
   thead {
-    background-color: color($colors, primary);
-    color: color($colors, branco);
+    background-color: #6900c7;
+    color: color($colors, branco);  
   }
 
+  .table-bordered{
+    border: none !important;
+  }
+
+  .table-bordered > thead > tr > th{
+    border: none !important; 
+  }
+
+  .event-detail-container{
+    border-top: 1px #F6F6F6 solid !important;
+  }
   .monthview-selected {
     background-color: color($colors, secondary) !important;
+    border-radius: 15%;
   }
+
+  .monthview-current{
+    border-radius: 15%;
+  }
+
+  .no-events-label {
+    font-size: 1.4rem !important;
+}
 }
