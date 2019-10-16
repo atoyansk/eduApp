@@ -27,6 +27,7 @@ import { WorkServicesProvider } from '../providers/work-services/work-services';
 import { ComponentsModule } from '../components/components.module';
 
 import { FirebaseConfig } from './firebase.credentials';
+import { CalendarServicesProvider } from '../providers/calendar-services/calendar-services';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { FirebaseConfig } from './firebase.credentials';
     Firebase,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     TaskServicesProvider,
-    WorkServicesProvider
+    WorkServicesProvider,
+    CalendarServicesProvider
   ]
 })
 export class AppModule {}

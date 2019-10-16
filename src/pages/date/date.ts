@@ -40,7 +40,6 @@ export class DatePage {
 
   scrollHandler(ev){
     ev.domWrite(() => {
-      console.log(ev.scrollTop);
       if(ev.scrollTop >= 120){
         this.currentColor = "branco";
         //this.setTransitions();

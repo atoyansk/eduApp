@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
 import { NewCalendarPage } from '../new-calendar/new-calendar';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { CalendarServicesProvider } from '../../providers/calendar-services/calendar-services'
+
 import * as moment from 'moment';
 
 @IonicPage()
@@ -24,7 +26,8 @@ export class CalendarPage {
     public navParams: NavParams,
     public modalCtrl: ModalController,
     public db: AngularFireDatabase,
-    public alertCtrl: AlertController) {
+    public alertCtrl: AlertController,
+    public calendarServices: CalendarServicesProvider) {
 
   }
 
@@ -47,6 +50,15 @@ export class CalendarPage {
         this.eventSource = [];
         setTimeout(() => {
           this.eventSource = events;
+          for(let ev of this.eventSource.slice(-1)){
+            console.log(ev);//>> aqui
+            this.calendarServices.createCalendar({ 
+              title: ev.title, 
+              startTime: ev.startTime.toString(),
+              endTime: ev.endTime.toString(),
+              allDay: ev.allDay 
+            })
+          }
         });
       }
     });
