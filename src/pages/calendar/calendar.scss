@@ -46,9 +46,52 @@ page-calendar {
   .monthview-current{
     border-radius: 15%;
   }
+  .monthview-primary-with-event{
+    border-radius: 15%;
+  }
 
   .no-events-label {
     font-size: 1.4rem !important;
+  }
+
+  .list-md {
+    margin: -1px 0 50px;
+  }
+
+  .list-md ion-item-options {
+    border-bottom: 1px solid #F6F6F6;
+  }
+
+  .label-md {
+    margin: 18px 8px 18px 38px;
+  } 
+
+  .item-md {
+    padding-left: 0;
+    border: 1px #F6F6F6 solid;
+  }
+
+  .item-md::before {
+    content:"";
+    background-color: #FCFBFC;
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-right: 1px solid #F6F6F6;
+    border-bottom: 1px solid #F6F6F6;
+  }
+
+  .item-md p {
+      font-size: 1.3rem;
+  }
+
+  .list-md > .item-wrapper:last-child ion-label {
+    border-bottom: 1px;
+    //margin-left: 35px;
+    margin: 0;
   }
 
 }
