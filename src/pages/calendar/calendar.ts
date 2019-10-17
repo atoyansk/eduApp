@@ -75,13 +75,11 @@ export class CalendarPage {
         eventData.startTime = new Date(data.startTime);
         eventData.endTime = new Date(data.endTime);
  
-        let events = this.eventSource;
+        let events = [];
         events.push(eventData);
-        this.eventSource = [];
         setTimeout(() => {
-          this.eventSource = events;
-          for(let ev of this.eventSource.slice(-1)){
-            console.log(ev);//>> aqui
+          for(let ev of events.slice(-1)){
+            console.log(ev);
             this.calendarServices.createCalendar({ 
               title: ev.title, 
               startTime: ev.startTime.toString(),
@@ -101,12 +99,23 @@ export class CalendarPage {
   onEventSelected(event) {
     let start = moment(event.startTime).format('LLLL');
     let end = moment(event.endTime).format('LLLL');
+
+    let dados = {};
+    if(event.allDay === false){
+      dados = {
+        title: '' + event.title,
+        subTitle: 'From: ' + start + '<br>To: ' + end,
+        buttons: ['OK']
+      }
+    }else{
+      dados = {
+        title: '' + event.title,
+        subTitle: 'The event lasts all day.',
+        buttons: ['OK']
+      }
+    }
     
-    let alert = this.alertCtrl.create({
-      title: '' + event.title,
-      subTitle: 'From: ' + start + '<br>To: ' + end,
-      buttons: ['OK']
-    })
+    let alert = this.alertCtrl.create(dados);
     alert.present();
   }
  

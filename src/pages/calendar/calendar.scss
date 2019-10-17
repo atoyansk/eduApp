@@ -38,15 +38,17 @@ page-calendar {
   .event-detail-container{
     border-top: 1px #F6F6F6 solid !important;
   }
+
+  .monthview-current{
+    border-radius: 15%;
+    background-color: #AAA !important;
+  }
+
   .monthview-selected {
     background-color: color($colors, secondary) !important;
     border-radius: 15%;
   }
 
-  .monthview-current{
-    border-radius: 15%;
-    background-color: #AAA;
-  }
   .monthview-primary-with-event{
     border-radius: 15%;
   }
@@ -97,10 +99,5 @@ page-calendar {
     //margin-left: 35px;
     margin: 0;
   }
-
-  h3.alert-sub-title {
-    margin: 12px 0 0 !important;
-    border-top: 1px solid #F6F6F6 !important;
-}
 
 }
