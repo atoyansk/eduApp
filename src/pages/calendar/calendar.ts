@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, ModalController, AlertController, LoadingController } from 'ionic-angular';
 import { NewCalendarPage } from '../new-calendar/new-calendar';
+import { CalendarComponent } from "ionic2-calendar/calendar";
 import { AngularFireDatabase } from '@angular/fire/database';
-import { CalendarServicesProvider } from '../../providers/calendar-services/calendar-services'
+import { CalendarServicesProvider } from '../../providers/calendar-services/calendar-services';
 
 import * as moment from 'moment';
 
@@ -22,16 +23,45 @@ export class CalendarPage {
     currentDate: new Date()
   };
 
+  calendarData;
+
+  @ViewChild(CalendarComponent) myCalendar:CalendarComponent;
+
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     public modalCtrl: ModalController,
     public db: AngularFireDatabase,
     public alertCtrl: AlertController,
+    public loadingCtrl: LoadingController,
     public calendarServices: CalendarServicesProvider) {
 
+      this.loadCalendar();
   }
 
-  ionViewDidLoad() {}
+  ionViewDidLoad() {
+    
+  }
+
+  loadCalendar() { 
+    let loader = this.loadingCtrl.create({ 
+      content: "Loading...", 
+    }); 
+    loader.present(); 
+      this.calendarData = this.calendarServices.getCalendar()
+      this.calendarData.subscribe((res) => { 
+        res.forEach(el => {
+          this.eventSource.push({  
+            title: el.title, 
+            startTime: new Date(el.startTime), 
+            endTime: new Date(el.endTime), 
+            allDay: el.allDay
+          }) 
+          this.myCalendar.loadEvents();
+        });    
+      }); 
+      loader.dismiss();  
+      console.log(this.eventSource) 
+    }
 
 
   addCalendar(){
