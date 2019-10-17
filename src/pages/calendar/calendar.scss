@@ -45,6 +45,7 @@ page-calendar {
 
   .monthview-current{
     border-radius: 15%;
+    background-color: #AAA;
   }
   .monthview-primary-with-event{
     border-radius: 15%;
@@ -72,16 +73,19 @@ page-calendar {
   }
 
   .item-md::before {
-    content:"";
+    content:"\25E6";
+    color: color($colors, primary);
+    font-size: 50px;
     background-color: #FCFBFC;
     display: block;
     position: absolute;
-    width: 30px;
+    width: 25px;
     height: 100%;
-    top: 0;
+    top: -2px;
     left: 0;
     border-right: 1px solid #F6F6F6;
     border-bottom: 1px solid #F6F6F6;
+    padding-left: 6px;
   }
 
   .item-md p {
@@ -93,5 +97,10 @@ page-calendar {
     //margin-left: 35px;
     margin: 0;
   }
+
+  h3.alert-sub-title {
+    margin: 12px 0 0 !important;
+    border-top: 1px solid #F6F6F6 !important;
+}
 
 }
