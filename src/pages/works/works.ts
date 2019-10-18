@@ -6,7 +6,7 @@ import * as firebase from 'firebase/app';
 import 'rxjs/add/operator/map';
 import { RoundProgressModule } from 'angular-svg-round-progressbar';
 
-import { WorkServicesProvider } from '../../providers/work-services/work-services'
+import { EducServicesProvider } from '../../providers/educ-services/educ-services'
 import { TodoPage } from '../todo/todo';
 
 @IonicPage()
@@ -19,10 +19,12 @@ export class WorksPage {
   works;
   showSpinner: boolean = true;
 
+  private basePath: string = 'works/';
+
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     public db: AngularFireDatabase,
-    public workServices: WorkServicesProvider) {
+    public educServices: EducServicesProvider) {
 
       this.listWorks();
 
@@ -33,7 +35,7 @@ export class WorksPage {
   }
 
   listWorks(){
-    this.works = this.workServices.getWorks();
+    this.works = this.educServices.getList(this.basePath);
 
     this.works.subscribe(
         res=> {

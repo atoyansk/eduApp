@@ -2,13 +2,12 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { FormBuilder, FormGroup, FormArray, Validators, FormControl } from '@angular/forms';
 
-import { TaskServicesProvider } from '../../providers/task-services/task-services';
+import { EducServicesProvider } from '../../providers/educ-services/educ-services';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from "rxjs/Observable";
 import * as firebase from 'firebase/app';
 import 'rxjs/add/operator/map';
 
-import { Task } from './task-model';
 
 @IonicPage()
 @Component({
@@ -16,6 +15,8 @@ import { Task } from './task-model';
   templateUrl: 'new-task.html',
 })
 export class NewTaskPage {
+
+  private basePath: string = 'tasks/';
 
   public addTask: FormGroup;
   public updateTask: FormGroup;
@@ -34,7 +35,7 @@ export class NewTaskPage {
     public viewCtrl: ViewController,
     public fb: FormBuilder,
     public db: AngularFireDatabase,
-    public taskServices: TaskServicesProvider) {
+    public educServices: EducServicesProvider) {
 
       this.workId = navParams.get('workId');
       this.task = navParams.get('task');
@@ -73,7 +74,7 @@ export class NewTaskPage {
   }
 
   newTask(){
-    this.taskServices.createTask({ 
+    this.educServices.createItem(this.basePath, { 
       name: this.addTask.value.name, 
       description: this.addTask.value.description,
       done: false,
@@ -83,7 +84,7 @@ export class NewTaskPage {
   }
 
   upTask(key){
-    this.taskServices.updateTask(key, {
+    this.educServices.updateItem(key, this.basePath, {
       name: this.updateTask.value.name, 
       description: this.updateTask.value.description
     });

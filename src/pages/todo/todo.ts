@@ -5,8 +5,7 @@ import { Observable } from "rxjs/Observable";
 import * as firebase from 'firebase/app';
 import 'rxjs/add/operator/map';
 
-import { TaskServicesProvider } from '../../providers/task-services/task-services';
-import { WorkServicesProvider } from '../../providers/work-services/work-services';
+import { EducServicesProvider } from '../../providers/educ-services/educ-services';
 import { NewTaskPage } from '../new-task/new-task';
 import * as moment from 'moment';
 
@@ -21,6 +20,7 @@ export class TodoPage {
   name;
   delivery;
   id;
+  field;
 
   tasks;
   showSpinner: boolean = true;
@@ -33,17 +33,21 @@ export class TodoPage {
   countDown;
   msgCount: string;
 
+  private basePath: string = 'tasks/';
+  private basePath2: string = 'works/';
+
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     public modalCtrl: ModalController,
     public db: AngularFireDatabase,
-    public taskServices: TaskServicesProvider,
-    public workServices: WorkServicesProvider) {
+    public educServices: EducServicesProvider) {
 
     this.data = navParams.get('data');
     this.name = this.data.name;
     this.delivery = this.data.deliveryDate;
     this.id = this.data.id;
+
+    this.field = 'workId';
 
     this.listTasks();
     this.dateDifference();
@@ -55,7 +59,7 @@ export class TodoPage {
   }
 
   listTasks(){
-    this.tasks = this.taskServices.getTasks(this.id);
+    this.tasks = this.educServices.getListRef(this.id, this.basePath, this.field);
 
     this.tasks.subscribe(
         res=> {
@@ -75,7 +79,7 @@ export class TodoPage {
           if(this.total && this.done){
             this.concluded = Math.round(this.done * 100 / this.total);
             console.log(this.concluded);
-            this.workServices.pctWork(this.id, {concluded: this.concluded});
+            this.educServices.updateItem(this.id, this.basePath2, {concluded: this.concluded});
           }else{
             this.concluded = 0;
           }
@@ -105,11 +109,11 @@ export class TodoPage {
   }
 
   removeTask(key){
-    this.taskServices.remove(key);
+    this.educServices.removeItem(key, this.basePath);
   }
 
   makeDone(key){
-    this.taskServices.doneTask(key);
+    this.educServices.updateItem(key, this.basePath, {done: true});
   }
 
   newTask(workId){

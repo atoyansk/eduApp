@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, ModalController, AlertController, 
 import { NewCalendarPage } from '../new-calendar/new-calendar';
 import { CalendarComponent } from "ionic2-calendar/calendar";
 import { AngularFireDatabase } from '@angular/fire/database';
-import { CalendarServicesProvider } from '../../providers/calendar-services/calendar-services';
+import { EducServicesProvider } from '../../providers/educ-services/educ-services';
 
 import * as moment from 'moment';
 
@@ -13,6 +13,8 @@ import * as moment from 'moment';
   templateUrl: 'calendar.html',
 })
 export class CalendarPage {
+
+  private basePath: string = 'calendar/';
 
   eventSource = [];
   viewTitle: string;
@@ -33,7 +35,7 @@ export class CalendarPage {
     public db: AngularFireDatabase,
     public alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
-    public calendarServices: CalendarServicesProvider) {
+    public educServices: EducServicesProvider) {
 
       this.loadCalendar();
   }
@@ -47,7 +49,7 @@ export class CalendarPage {
       content: "Loading...", 
     }); 
     loader.present(); 
-      this.calendarData = this.calendarServices.getCalendar()
+      this.calendarData = this.educServices.getList(this.basePath)
       this.calendarData.subscribe((res) => { 
         res.forEach(el => {
           this.eventSource.push({  
@@ -80,7 +82,7 @@ export class CalendarPage {
         setTimeout(() => {
           for(let ev of events.slice(-1)){
             console.log(ev);
-            this.calendarServices.createCalendar({ 
+            this.educServices.createItem(this.basePath, { 
               title: ev.title, 
               startTime: ev.startTime.toString(),
               endTime: ev.endTime.toString(),

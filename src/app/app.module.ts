@@ -21,13 +21,11 @@ import { DatePageModule } from '../pages/date/date.module';
 import { GradesPageModule } from '../pages/grades/grades.module';
 import { TasksPageModule } from '../pages/tasks/tasks.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { TaskServicesProvider } from '../providers/task-services/task-services';
-import { WorkServicesProvider } from '../providers/work-services/work-services';
 
 import { ComponentsModule } from '../components/components.module';
+import { EducServicesProvider } from '../providers/educ-services/educ-services';
 
 import { FirebaseConfig } from './firebase.credentials';
-import { CalendarServicesProvider } from '../providers/calendar-services/calendar-services';
 
 
 @NgModule({
@@ -66,9 +64,7 @@ import { CalendarServicesProvider } from '../providers/calendar-services/calenda
     NativePageTransitions,
     Firebase,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    TaskServicesProvider,
-    WorkServicesProvider,
-    CalendarServicesProvider
+    EducServicesProvider
   ]
 })
 export class AppModule {}
