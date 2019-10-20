@@ -6,7 +6,7 @@ import * as firebase from 'firebase/app';
 import 'rxjs/add/operator/map';
 
 import { EducServicesProvider } from '../../providers/educ-services/educ-services'
-import { JustifyPage } from '../justify/justify';
+import { FurloughPage } from '../furlough/furlough';
 
 @IonicPage()
 @Component({
@@ -45,7 +45,7 @@ export class AbsencesPage {
   }
 
   goJustify(data){
-    this.navCtrl.push(JustifyPage, {data: data});
+    this.navCtrl.push(FurloughPage, {data: data});
   }
 
   newAbsence(){

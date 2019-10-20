@@ -14,7 +14,7 @@ import 'firebase/storage';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { TodoPage } from '../pages/todo/todo';
-import { JustifyPage } from '../pages/justify/justify';
+import { FurloughPage } from '../pages/furlough/furlough';
 import { NewTaskPage } from '../pages/new-task/new-task';
 import { NewCalendarPage } from '../pages/new-calendar/new-calendar';
 
@@ -34,7 +34,7 @@ import { FirebaseConfig } from './firebase.credentials';
     MyApp,
     HomePage,
     TodoPage,
-    JustifyPage,
+    FurloughPage,
     NewTaskPage,
     NewCalendarPage
   ],
@@ -57,7 +57,7 @@ import { FirebaseConfig } from './firebase.credentials';
     MyApp,
     HomePage,
     TodoPage,
-    JustifyPage,
+    FurloughPage,
     NewTaskPage,
     NewCalendarPage
   ],

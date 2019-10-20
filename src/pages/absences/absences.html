@@ -3,8 +3,8 @@
   <ion-item text-wrap *ngFor="let abs of absences | async">
     <ion-row>
       <ion-col col-8>
-        <h3>{{ abs.subject }}</h3>
-        <p>{{ abs.date }}</p>
+        <h3>Absence in {{ abs.subject }}</h3>
+        <p>On {{ abs.date | date: 'MM/dd/yyyy' }}</p>
       </ion-col> 
       <ion-col col-3>
         <button ion-button class="goJustify" (click)="goJustify(abs)">

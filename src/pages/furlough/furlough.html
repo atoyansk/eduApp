@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>   
+  </ion-navbar>
+  <h3>Request for furlough in {{ subject }} class.</h3>
+  <p id="subtitle">On {{ dateAbs | date: 'MM/dd/yyyy' }}.</p>  
+</ion-header>
+
+<ion-content padding>
+
+  <ion-segment [(ngModel)]="selectedSegment">
+    <ion-segment-button value="hour">
+      An hour
+    </ion-segment-button>
+    <ion-segment-button value="hours">
+      Hours
+    </ion-segment-button>
+    <ion-segment-button value="day">
+      A day
+    </ion-segment-button>
+    <ion-segment-button value="days">
+      Days
+    </ion-segment-button>
+  </ion-segment>
+
+</ion-content>
