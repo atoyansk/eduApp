@@ -305,5 +305,9 @@
     color: color($colors, textlight) !important;
   }
 
+  .alert-md .alert-radio-label {
+    white-space: pre-line !important;
+    color: color($colors, textlight);
+  }
 
 

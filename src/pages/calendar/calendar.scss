@@ -9,7 +9,8 @@ page-calendar {
 
   .table > tbody > tr > td{
     line-height: 10px !important;
-    border: none !important;
+    border: 1px solid color($colors, branco) !important;
+    padding: 7px !important;
   }
 
   th{
@@ -35,18 +36,18 @@ page-calendar {
   }
 
   .monthview-current{
-    border-radius: 15%;
+    border-radius: 6px !important;
     background-color: #AAA !important;
     color: color($colors, branco);
   }
 
   .monthview-selected {
     background-color: color($colors, secondary) !important;
-    border-radius: 15%;
+    border-radius: 6px !important;
   }
 
   .monthview-primary-with-event{
-    border-radius: 15%;
+    border-radius: 6px !important;
   }
 
   .no-events-label {

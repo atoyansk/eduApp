@@ -1,8 +1,8 @@
 <ion-header>
   <ion-navbar>   
   </ion-navbar>
-  <h3>Request for furlough in {{ subject }} class.</h3>
-  <p id="subtitle">On {{ dateAbs | date: 'MM/dd/yyyy' }}.</p>  
+  <h3>Request for furlough in {{ subject }} class</h3>
+  <p id="subtitle">On {{ dateAbs | date: 'MM/dd/yyyy' }}</p>  
 </ion-header>
 
 <ion-content padding>
@@ -21,5 +21,22 @@
       Days
     </ion-segment-button>
   </ion-segment>
+
+  <ion-list>
+    <ion-list-header>Choose one option</ion-list-header>
+    <ion-item>
+      <ion-select [(ngModel)]="AbsenceReason">
+        <ion-option value="Scheduled Vacations">Scheduled Vacations</ion-option>
+        <ion-option value="Bagrut">Bagrut</ion-option>
+        <ion-option value="Religious holiday">Religious holiday</ion-option>
+        <ion-option value="Custom Program">Custom Program</ion-option>
+        <ion-option value="Review lesson">Review lesson</ion-option>
+        <ion-option value="Participant of a delegation">Participant of a delegation</ion-option>
+        <ion-option value="Chronic medical problem (upon presentation of single medical certificate)">Chronic medical problem (upon presentation of single medical certificate)</ion-option>
+        <ion-option value="Approved studies out of school">Approved studies out of school</ion-option>
+      </ion-select>
+    </ion-item>
+  
+  </ion-list>
 
 </ion-content>

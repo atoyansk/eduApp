@@ -73,4 +73,27 @@ page-furlough {
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
       }
+
+      ion-select {
+        max-width: 100% !important;
+        width: 100% !important;
+      }
+
+      button {
+        border: 1px solid color($colors, primary);
+        border-radius: 10px;
+      }
+
+     .select-text {
+        white-space: pre-line;
+      }
+
+      .list-header-md {
+        padding-left: 10px;
+        margin-bottom: 0;
+        min-height: 4.5rem;
+        border-top: none;
+        font-size: 1.4rem;
+        color: color($colors, primary);
+    }
 }
