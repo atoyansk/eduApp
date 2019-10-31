@@ -1,0 +1,126 @@
+
+  <ion-segment [(ngModel)]="selectedDay">
+    <ion-segment-button value="sunday">
+      SUN
+    </ion-segment-button>
+    <ion-segment-button value="monday">
+      MON
+    </ion-segment-button>
+    <ion-segment-button value="tuesday">
+      TUE
+    </ion-segment-button>
+    <ion-segment-button value="wednesday">
+      WED
+    </ion-segment-button>
+    <ion-segment-button value="thursday">
+      THU
+    </ion-segment-button>
+    <ion-segment-button value="friday">
+      FRI
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="selectedDay">
+		<div *ngSwitchCase="'sunday'">
+      <ion-list *ngFor="let class of classes; let i=index;">
+        <ion-item text-wrap>
+          <ion-row> 
+            <ion-col col-3>
+              <span class="numbers">
+                {{i+1}}
+              </span>
+            </ion-col>
+            <ion-col col-9>
+              <h3>Subject <span>Time</span></h3>
+              <p>Teacher</p>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div *ngSwitchCase="'monday'">
+      <ion-list *ngFor="let class of classes; let i=index;">
+        <ion-item text-wrap>
+          <ion-row> 
+            <ion-col col-3>
+              <span class="numbers">
+                {{i+1}}
+              </span>
+            </ion-col>
+            <ion-col col-9>
+              <h3>Subject <span>Time</span></h3>
+              <p>Teacher</p>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div *ngSwitchCase="'tuesday'">
+      <ion-list *ngFor="let class of classes; let i=index;">
+        <ion-item text-wrap>
+          <ion-row> 
+            <ion-col col-3>
+              <span class="numbers">
+                {{i+1}}
+              </span>
+            </ion-col>
+            <ion-col col-9>
+              <h3>Subject <span>Time</span></h3>
+              <p>Teacher</p>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div *ngSwitchCase="'wednesday'">
+      <ion-list *ngFor="let class of classes; let i=index;">
+        <ion-item text-wrap>
+          <ion-row> 
+            <ion-col col-3>
+              <span class="numbers">
+                {{i+1}}
+              </span>
+            </ion-col>
+            <ion-col col-9>
+              <h3>Subject <span>Time</span></h3>
+              <p>Teacher</p>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div *ngSwitchCase="'thursday'">
+      <ion-list *ngFor="let class of classes; let i=index;">
+        <ion-item text-wrap>
+          <ion-row> 
+            <ion-col col-3>
+              <span class="numbers">
+                {{i+1}}
+              </span>
+            </ion-col>
+            <ion-col col-9>
+              <h3>Subject <span>Time</span></h3>
+              <p>Teacher</p>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div *ngSwitchCase="'friday'">
+      <ion-list *ngFor="let class of classes; let i=index;">
+        <ion-item text-wrap>
+          <ion-row> 
+            <ion-col col-3>
+              <span class="numbers">
+                {{i+1}}
+              </span>
+            </ion-col>
+            <ion-col col-9>
+              <h3>Subject <span>Time</span></h3>
+              <p>Teacher</p>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>

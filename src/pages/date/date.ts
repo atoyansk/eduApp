@@ -9,7 +9,7 @@ import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 })
 export class DatePage {
 
-  selectedSegment = 'schedules';
+  selectedSegment = 'timetable';
 
   public currentColor: string;
 

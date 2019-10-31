@@ -10,8 +10,8 @@
 
   <ion-toolbar #tool [color]="currentColor">
     <ion-segment [(ngModel)]="selectedSegment">
-      <ion-segment-button value="schedules">
-        Schedules
+      <ion-segment-button value="timetable">
+        Timetable
       </ion-segment-button>
       <ion-segment-button value="events">
         Events
@@ -27,8 +27,8 @@
 
   <!--Put segment content here-->
 	<div [ngSwitch]="selectedSegment">
-		<div *ngSwitchCase="'schedules'">
-      <page-schedules></page-schedules>
+		<div *ngSwitchCase="'timetable'">
+      <page-timetable></page-timetable>
     </div>
 		<div *ngSwitchCase="'events'">
 			<page-events></page-events>

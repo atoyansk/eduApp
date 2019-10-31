@@ -48,12 +48,12 @@ export class AbsencesPage {
     this.navCtrl.push(FurloughPage, {data: data});
   }
 
-  newAbsence(){
-    this.educServices.createItem(this.basePath, { 
-      subject: 'Mathematics', 
-      date: '2019-09-22',
-      hasLeave: false
-    })
-  }
+  // newAbsence(){
+  //   this.educServices.createItem(this.basePath, { 
+  //     subject: 'Mathematics', 
+  //     date: '2019-09-22',
+  //     hasLeave: false
+  //   })
+  // }
 
 }

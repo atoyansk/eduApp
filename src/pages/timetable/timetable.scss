@@ -1,0 +1,93 @@
+page-timetable {
+
+    .segment-md {
+        margin: 15px auto 10px;
+        border: 1px solid color($colors, primary);
+        border-radius: 10px;
+        width: 95%;
+      }
+
+      .segment-md .segment-button{
+        color: color($colors, primary);
+        text-transform: none;
+        padding: 0 3px;
+        font-size: 1.3rem;
+        font-weight: normal;
+      }
+      .segment-md .segment-button.segment-activated {
+        border-color: color($colors, primary);
+        opacity: 1;
+        color: white;
+        background-color: color($colors, primary);
+      }
+
+      .segment-md .segment-button.segment-activated:first-child{
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
+
+      .segment-md .segment-button.segment-activated:nth-child(6){
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+
+
+      .list-md {
+        margin: -1px 0 1px;
+      }
+
+      .list-md ion-item-options {
+        border-bottom: 1px solid #F6F6F6;
+      }
+
+      .label-md {
+        margin: 0px 8px 0px 0;
+      }
+
+      .item-md {
+        padding-left: 0;
+        border: 1px #F6F6F6 solid;
+      }
+
+      .item-md p {
+          font-size: 1.3rem;
+      }
+
+      .list-md > .item-wrapper:last-child ion-label {
+        border-bottom: 1px;
+        margin: 0;
+      }
+
+      [col-3]{
+        padding: 0 !important;
+        background-color: #FCFBFC;
+        border-right: 1px solid #F6F6F6;
+      }
+  
+      [col-9] {
+        margin: 8px 0;
+      }
+      [col-9] p{
+          margin-top: 5px;
+      }
+
+      [col-9] h3>span{
+          float: right;
+      }
+
+      .numbers{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.6rem;
+        font-weight: 600;
+        text-align: center;
+        display: inline-block;
+        box-shadow: none;
+        margin: 0;
+        border-radius: none;
+        width: 100%; 
+        padding: 10px;
+    }
+}
