@@ -58,21 +58,23 @@ page-timetable {
         margin: 0;
       }
 
-      [col-3]{
+      [col-2]{
         padding: 0 !important;
         background-color: #FCFBFC;
         border-right: 1px solid #F6F6F6;
+        min-height: 50px;
       }
   
-      [col-9] {
+      [col-10] {
         margin: 3px 0;
       }
-      [col-9] p{
+      [col-10] p{
           margin-top: 5px;
       }
 
-      [col-9] h3>span{
+      [col-10] h3>span{
           float: right;
+          font-size: 1.2rem;
       }
 
       .numbers{

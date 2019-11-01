@@ -22,105 +22,111 @@
 
   <div [ngSwitch]="selectedDay">
 		<div *ngSwitchCase="'sunday'">
-      <ion-list *ngFor="let class of classes; let i=index;">
+      <loading-spinner *ngIf="showSpinner"></loading-spinner>
+      <ion-list *ngFor="let tmtb of timeSunday | async; let i=index;">
         <ion-item text-wrap>
           <ion-row> 
-            <ion-col col-3>
+            <ion-col col-2>
               <span class="numbers">
-                {{i+1}}
+                {{tmtb.number}}
               </span>
             </ion-col>
-            <ion-col col-9>
-              <h3>Subject <span>Time</span></h3>
-              <p>Teacher</p>
+            <ion-col col-10>
+              <h3>{{tmtb.subject}} <span>{{tmtb.time}}</span></h3>
+              <p>{{tmtb.teacher}}</p>
             </ion-col>
           </ion-row>
         </ion-item>
       </ion-list>
     </div>
     <div *ngSwitchCase="'monday'">
-      <ion-list *ngFor="let class of classes; let i=index;">
+      <loading-spinner *ngIf="showSpinner"></loading-spinner>
+      <ion-list *ngFor="let tmtb of timeMonday | async; let i=index;">
         <ion-item text-wrap>
           <ion-row> 
-            <ion-col col-3>
+            <ion-col col-2>
               <span class="numbers">
-                {{i+1}}
+                {{tmtb.number}}
               </span>
             </ion-col>
-            <ion-col col-9>
-              <h3>Subject <span>Time</span></h3>
-              <p>Teacher</p>
+            <ion-col col-10>
+              <h3>{{tmtb.subject}} <span>{{tmtb.time}}</span></h3>
+              <p>{{tmtb.teacher}}</p>
             </ion-col>
           </ion-row>
         </ion-item>
       </ion-list>
     </div>
     <div *ngSwitchCase="'tuesday'">
-      <ion-list *ngFor="let class of classes; let i=index;">
-        <ion-item text-wrap>
-          <ion-row> 
-            <ion-col col-3>
-              <span class="numbers">
-                {{i+1}}
-              </span>
-            </ion-col>
-            <ion-col col-9>
-              <h3>Subject <span>Time</span></h3>
-              <p>Teacher</p>
-            </ion-col>
-          </ion-row>
-        </ion-item>
-      </ion-list>
+      <loading-spinner *ngIf="showSpinner"></loading-spinner>
+      <ion-list *ngFor="let tmtb of timeTuesday | async; let i=index;">
+          <ion-item text-wrap>
+            <ion-row> 
+              <ion-col col-2>
+                <span class="numbers">
+                  {{tmtb.number}}
+                </span>
+              </ion-col>
+              <ion-col col-10>
+                <h3>{{tmtb.subject}} <span>{{tmtb.time}}</span></h3>
+                <p>{{tmtb.teacher}}</p>
+              </ion-col>
+            </ion-row>
+          </ion-item>
+        </ion-list>
     </div>
     <div *ngSwitchCase="'wednesday'">
-      <ion-list *ngFor="let class of classes; let i=index;">
-        <ion-item text-wrap>
-          <ion-row> 
-            <ion-col col-3>
-              <span class="numbers">
-                {{i+1}}
-              </span>
-            </ion-col>
-            <ion-col col-9>
-              <h3>Subject <span>Time</span></h3>
-              <p>Teacher</p>
-            </ion-col>
-          </ion-row>
-        </ion-item>
-      </ion-list>
+      <loading-spinner *ngIf="showSpinner"></loading-spinner>
+      <ion-list *ngFor="let tmtb of timeWednesday | async; let i=index;">
+          <ion-item text-wrap>
+            <ion-row> 
+              <ion-col col-2>
+                <span class="numbers">
+                  {{tmtb.number}}
+                </span>
+              </ion-col>
+              <ion-col col-10>
+                <h3>{{tmtb.subject}} <span>{{tmtb.time}}</span></h3>
+                <p>{{tmtb.teacher}}</p>
+              </ion-col>
+            </ion-row>
+          </ion-item>
+        </ion-list>
     </div>
     <div *ngSwitchCase="'thursday'">
-      <ion-list *ngFor="let class of classes; let i=index;">
-        <ion-item text-wrap>
-          <ion-row> 
-            <ion-col col-3>
-              <span class="numbers">
-                {{i+1}}
-              </span>
-            </ion-col>
-            <ion-col col-9>
-              <h3>Subject <span>Time</span></h3>
-              <p>Teacher</p>
-            </ion-col>
-          </ion-row>
-        </ion-item>
-      </ion-list>
+      <loading-spinner *ngIf="showSpinner"></loading-spinner>
+      <ion-list *ngFor="let tmtb of timeThursday | async; let i=index;">
+          <ion-item text-wrap>
+            <ion-row> 
+              <ion-col col-2>
+                <span class="numbers">
+                  {{tmtb.number}}
+                </span>
+              </ion-col>
+              <ion-col col-10>
+                <h3>{{tmtb.subject}} <span>{{tmtb.time}}</span></h3>
+                <p>{{tmtb.teacher}}</p>
+              </ion-col>
+            </ion-row>
+          </ion-item>
+        </ion-list>
     </div>
     <div *ngSwitchCase="'friday'">
-      <ion-list *ngFor="let class of classes; let i=index;">
-        <ion-item text-wrap>
-          <ion-row> 
-            <ion-col col-3>
-              <span class="numbers">
-                {{i+1}}
-              </span>
-            </ion-col>
-            <ion-col col-9>
-              <h3>Subject <span>Time</span></h3>
-              <p>Teacher</p>
-            </ion-col>
-          </ion-row>
-        </ion-item>
-      </ion-list>
+      <loading-spinner *ngIf="showSpinner"></loading-spinner>
+      <ion-list *ngFor="let tmtb of timeFriday | async; let i=index;">
+          <ion-item text-wrap>
+            <ion-row> 
+              <ion-col col-2>
+                <span class="numbers">
+                  {{tmtb.number}}
+                </span>
+              </ion-col>
+              <ion-col col-10>
+                <h3>{{tmtb.subject}} <span>{{tmtb.time}}</span></h3>
+                <p>{{tmtb.teacher}}</p>
+              </ion-col>
+            </ion-row>
+          </ion-item>
+        </ion-list>
     </div>
   </div>

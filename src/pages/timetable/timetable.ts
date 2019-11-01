@@ -17,7 +17,14 @@ export class TimetablePage {
   selectedDay: string;
   classes: any = new Array(10);
 
-  timetable;
+  timeSunday;
+  timeMonday;
+  timeTuesday;
+  timeWednesday;
+  timeThursday;
+  timeFriday;
+
+  weekdays = [];
 
   showSpinner: boolean = true;
 
@@ -29,8 +36,8 @@ export class TimetablePage {
     public educServices: EducServicesProvider) {
 
     let currentDate = new Date();
-    let weekdays = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
-    this.selectedDay = weekdays[currentDate.getDay()];
+    this.weekdays = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+    this.selectedDay = this.weekdays[currentDate.getDay()];
 
     //this.newTimetable();
     this.listTimetable();
@@ -41,61 +48,55 @@ export class TimetablePage {
   }
 
   listTimetable(){
-    this.timetable = this.educServices.getList(this.basePath);
-
-    this.timetable.subscribe(
+    this.timeSunday = this.educServices.getList(this.basePath + this.weekdays[0]);
+    this.timeSunday.subscribe(
         res=> {
           console.log(res);
           this.showSpinner = false;
-        })     
+        });
+        
+    this.timeMonday = this.educServices.getList(this.basePath + this.weekdays[1]);
+    this.timeMonday.subscribe(
+        res=> {
+          console.log(res);
+          this.showSpinner = false;
+        });
+
+    this.timeTuesday = this.educServices.getList(this.basePath + this.weekdays[2]);
+    this.timeTuesday.subscribe(
+        res=> {
+          console.log(res);
+          this.showSpinner = false;
+        });
+
+    this.timeWednesday = this.educServices.getList(this.basePath + this.weekdays[3]);
+    this.timeWednesday.subscribe(
+        res=> {
+          console.log(res);
+          this.showSpinner = false;
+        }); 
+        
+    this.timeThursday = this.educServices.getList(this.basePath + this.weekdays[4]);
+    this.timeThursday.subscribe(
+        res=> {
+          console.log(res);
+          this.showSpinner = false;
+        });
+
+    this.timeFriday = this.educServices.getList(this.basePath + this.weekdays[5]);
+    this.timeFriday.subscribe(
+        res=> {
+          console.log(res);
+          this.showSpinner = false;
+        });
   }
 
   // newTimetable(){
-  //   this.educServices.createItem(this.basePath, { 
-  //     sunday: [
-  //       {
-  //         number: 1,
-  //         subject: 'Mathematics 4',
-  //         teacher: 'John Smith',
-  //         time: '08:10 - 08:55'
-  //       },
-  //       {
-  //         number: 2,
-  //         subject: 'Mathematics 4',
-  //         teacher: 'John Smith',
-  //         time: '09:00 - 09:45'
-  //       },
-  //       {
-  //         number: 3,
-  //         subject: 'English 5',
-  //         teacher: 'Peter Strauss',
-  //         time: '09:50 - 10:35'
-  //       },
-  //       {
-  //         number: 4,
-  //         subject: 'Hebrew 4',
-  //         teacher: 'Tamar Cohen',
-  //         time: '11:00 - 11:45'
-  //       },
-  //       {
-  //         number: 5,
-  //         subject: 'History 4',
-  //         teacher: 'William Doe',
-  //         time: '11:50 - 12:35'
-  //       },
-  //       {
-  //         number: 6,
-  //         subject: 'Biology 1',
-  //         teacher: 'Chen Levi',
-  //         time: '12:45 - 13:30'
-  //       },
-  //       {
-  //         number: 7,
-  //         subject: 'Biology 1',
-  //         teacher: 'Chen Levi',
-  //         time: '13:35 - 14:20'
-  //       }
-  //     ]
+  //   this.educServices.createItem(this.basePath + this.weekdays[1], { 
+  //         number: 10,
+  //         subject: '',
+  //         teacher: '',
+  //         time: ''    
   //   })
   // }
 
