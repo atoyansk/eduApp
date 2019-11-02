@@ -1,22 +1,7 @@
 
   <ion-segment [(ngModel)]="selectedDay">
-    <ion-segment-button value="sunday">
-      SUN
-    </ion-segment-button>
-    <ion-segment-button value="monday">
-      MON
-    </ion-segment-button>
-    <ion-segment-button value="tuesday">
-      TUE
-    </ion-segment-button>
-    <ion-segment-button value="wednesday">
-      WED
-    </ion-segment-button>
-    <ion-segment-button value="thursday">
-      THU
-    </ion-segment-button>
-    <ion-segment-button value="friday">
-      FRI
+    <ion-segment-button *ngFor="let day of weekdays" value={{day.name}}>
+      {{day.id}}
     </ion-segment-button>
   </ion-segment>
 

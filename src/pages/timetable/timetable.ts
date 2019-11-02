@@ -24,7 +24,7 @@ export class TimetablePage {
   timeThursday;
   timeFriday;
 
-  weekdays = [];
+  weekdays;
 
   showSpinner: boolean = true;
 
@@ -36,8 +36,20 @@ export class TimetablePage {
     public educServices: EducServicesProvider) {
 
     let currentDate = new Date();
-    this.weekdays = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
-    this.selectedDay = this.weekdays[currentDate.getDay()];
+    this.weekdays = [
+      { name: "sunday",   id: 'SUN'},
+      { name: "monday",   id: "MON"}, 
+      { name: "tuesday",  id: 'TUE'}, 
+      { name: "wednesday",id: 'WED'}, 
+      { name: "thursday", id: 'THU'}, 
+      { name: "friday",   id: 'FRI'}
+    ];
+    if(currentDate.getDay() !== 6){
+      this.selectedDay = this.weekdays[currentDate.getDay()].name;
+    }else{
+      this.selectedDay = "sunday";
+    }
+    
 
     //this.newTimetable();
     this.listTimetable();
@@ -48,42 +60,42 @@ export class TimetablePage {
   }
 
   listTimetable(){
-    this.timeSunday = this.educServices.getList(this.basePath + this.weekdays[0]);
+    this.timeSunday = this.educServices.getList(this.basePath + this.weekdays[0].name);
     this.timeSunday.subscribe(
         res=> {
           console.log(res);
           this.showSpinner = false;
         });
         
-    this.timeMonday = this.educServices.getList(this.basePath + this.weekdays[1]);
+    this.timeMonday = this.educServices.getList(this.basePath + this.weekdays[1].name);
     this.timeMonday.subscribe(
         res=> {
           console.log(res);
           this.showSpinner = false;
         });
 
-    this.timeTuesday = this.educServices.getList(this.basePath + this.weekdays[2]);
+    this.timeTuesday = this.educServices.getList(this.basePath + this.weekdays[2].name);
     this.timeTuesday.subscribe(
         res=> {
           console.log(res);
           this.showSpinner = false;
         });
 
-    this.timeWednesday = this.educServices.getList(this.basePath + this.weekdays[3]);
+    this.timeWednesday = this.educServices.getList(this.basePath + this.weekdays[3].name);
     this.timeWednesday.subscribe(
         res=> {
           console.log(res);
           this.showSpinner = false;
         }); 
         
-    this.timeThursday = this.educServices.getList(this.basePath + this.weekdays[4]);
+    this.timeThursday = this.educServices.getList(this.basePath + this.weekdays[4].name);
     this.timeThursday.subscribe(
         res=> {
           console.log(res);
           this.showSpinner = false;
         });
 
-    this.timeFriday = this.educServices.getList(this.basePath + this.weekdays[5]);
+    this.timeFriday = this.educServices.getList(this.basePath + this.weekdays[5].name);
     this.timeFriday.subscribe(
         res=> {
           console.log(res);
