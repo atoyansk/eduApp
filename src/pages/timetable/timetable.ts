@@ -15,15 +15,7 @@ import { EducServicesProvider } from '../../providers/educ-services/educ-service
 export class TimetablePage {
 
   selectedDay: string;
-  classes: any = new Array(10);
-
-  timeSunday;
-  timeMonday;
-  timeTuesday;
-  timeWednesday;
-  timeThursday;
-  timeFriday;
-
+  timeTable;
   weekdays;
 
   showSpinner: boolean = true;
@@ -49,8 +41,6 @@ export class TimetablePage {
     }else{
       this.selectedDay = "sunday";
     }
-    
-
     //this.newTimetable();
     this.listTimetable();
   }
@@ -59,57 +49,17 @@ export class TimetablePage {
     console.log('ionViewDidLoad TimetablePage');
   }
 
-  listTimetable(){
-    this.timeSunday = this.educServices.getList(this.basePath + this.weekdays[0].name);
-    this.timeSunday.subscribe(
-        res=> {
-          console.log(res);
-          this.showSpinner = false;
-        });
-        
-    this.timeMonday = this.educServices.getList(this.basePath + this.weekdays[1].name);
-    this.timeMonday.subscribe(
-        res=> {
-          console.log(res);
-          this.showSpinner = false;
-        });
-
-    this.timeTuesday = this.educServices.getList(this.basePath + this.weekdays[2].name);
-    this.timeTuesday.subscribe(
-        res=> {
-          console.log(res);
-          this.showSpinner = false;
-        });
-
-    this.timeWednesday = this.educServices.getList(this.basePath + this.weekdays[3].name);
-    this.timeWednesday.subscribe(
-        res=> {
-          console.log(res);
-          this.showSpinner = false;
-        }); 
-        
-    this.timeThursday = this.educServices.getList(this.basePath + this.weekdays[4].name);
-    this.timeThursday.subscribe(
-        res=> {
-          console.log(res);
-          this.showSpinner = false;
-        });
-
-    this.timeFriday = this.educServices.getList(this.basePath + this.weekdays[5].name);
-    this.timeFriday.subscribe(
-        res=> {
-          console.log(res);
-          this.showSpinner = false;
-        });
+  segments(ev){
+    this.selectedDay = ev.value;
+    this.listTimetable();
   }
 
-  // newTimetable(){
-  //   this.educServices.createItem(this.basePath + this.weekdays[1], { 
-  //         number: 10,
-  //         subject: '',
-  //         teacher: '',
-  //         time: ''    
-  //   })
-  // }
-
+  listTimetable(){
+    this.timeTable = this.educServices.getListRef(this.selectedDay, this.basePath, 'day');
+    this.timeTable.subscribe(
+        res=> {
+          console.log(res);
+          this.showSpinner = false;
+        });
+      }       
 }
