@@ -1,10 +1,26 @@
 
 <ion-header>
-  <ion-navbar>
-    <ion-title>Messages</ion-title>
-  </ion-navbar>
+
+  <shrinking-segment-header [scrollArea]="myContent" headerHeight="120">
+      <h3>Messages</h3>
+    <img src="../../assets/imgs/student.jpg" />
+  </shrinking-segment-header>
+
+  <ion-toolbar #tool [color]="currentColor">
+    <ion-segment [(ngModel)]="selectedSegment">
+      <ion-segment-button value="inbox">
+        Inbox
+      </ion-segment-button>
+      <ion-segment-button value="sent">
+        Sent
+      </ion-segment-button>
+      <ion-segment-button value="archived">
+        Archived
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content fullscreen #myContent>
 
 </ion-content>

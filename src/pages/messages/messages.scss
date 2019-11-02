@@ -1,3 +1,62 @@
 page-messages {
 
+    ion-header {
+        background-image: 
+        url('../../assets/imgs/topo-messages.png'), 
+        linear-gradient(to top right,#AC5E98,#6B63D3);
+        background-size: cover;
+        background-position: center;
+      }
+    
+      ion-content {
+        height: 85%;
+      }
+    
+    shrinking-segment-header {
+        background-color: transparent;
+        color: #6900c7;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 16px;
+    
+        img {
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            border: 2px solid color($colors, primary);
+        }
+    
+        h3 {
+          font-size: 2.3rem;
+          font-weight: 500;
+        }
+    
+    }
+    
+    .toolbar-md {
+      padding: 4px;
+      min-height: 56px;
+    }
+    
+    //.toolbar-md-light .toolbar-background-md {
+      //background: color($colors, primary);
+      //background: transparent;
+      //background: linear-gradient(to bottom, rgba(0,0,0, 0.00), rgba(0,0,0, 0.50));
+    //}
+    
+    .toolbar .segment-md {
+      margin: 8px auto -4px;
+    }
+      .segment-md .segment-button{
+        color: #6900c7;
+        text-transform: none;
+        padding: 0 3px;
+        font-size: 1.3rem;
+        font-weight: normal;
+      }
+    
+      .segment-md .segment-button.segment-activated {
+        border-bottom: 4px solid #6900c7;
+      }
 }

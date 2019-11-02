@@ -41,7 +41,7 @@ export class TimetablePage {
     }else{
       this.selectedDay = "sunday";
     }
-    //this.newTimetable();
+    
     this.listTimetable();
   }
 
