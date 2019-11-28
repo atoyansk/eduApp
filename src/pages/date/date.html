@@ -10,9 +10,6 @@
       <ion-segment-button value="timetable">
         Timetable
       </ion-segment-button>
-      <ion-segment-button value="events">
-        Events
-      </ion-segment-button>
       <ion-segment-button value="calendar">
         My Calendar
       </ion-segment-button>
@@ -26,9 +23,6 @@
 	<div [ngSwitch]="selectedSegment">
 		<div *ngSwitchCase="'timetable'">
       <page-timetable></page-timetable>
-    </div>
-		<div *ngSwitchCase="'events'">
-			<page-events></page-events>
     </div>
 		<div *ngSwitchCase="'calendar'">
 			<page-calendar></page-calendar>
