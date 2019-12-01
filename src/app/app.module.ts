@@ -17,6 +17,7 @@ import { TodoPage } from '../pages/todo/todo';
 import { FurloughPage } from '../pages/furlough/furlough';
 import { NewTaskPage } from '../pages/new-task/new-task';
 import { NewCalendarPage } from '../pages/new-calendar/new-calendar';
+import { ContentPage } from '../pages/content/content';
 
 import { DatePageModule } from '../pages/date/date.module';
 import { GradesPageModule } from '../pages/grades/grades.module';
@@ -36,7 +37,8 @@ import { FirebaseConfig } from './firebase.credentials';
     TodoPage,
     FurloughPage,
     NewTaskPage,
-    NewCalendarPage
+    NewCalendarPage,
+    ContentPage
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,8 @@ import { FirebaseConfig } from './firebase.credentials';
     TodoPage,
     FurloughPage,
     NewTaskPage,
-    NewCalendarPage
+    NewCalendarPage,
+    ContentPage
   ],
   providers: [
     StatusBar,
