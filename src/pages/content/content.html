@@ -29,7 +29,7 @@
               <p>{{ det.content }}</p>
             </button>
         </div>
-        <div *ngIf="det.type === 'link'">
+        <div *ngIf="det.type === 'link' || det.type === 'mic'">
             <button ion-item text-wrap (click)="openLink(det.content)">
               <p>{{ det.content }}</p>
             </button>
