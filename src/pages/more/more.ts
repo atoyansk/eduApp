@@ -28,7 +28,7 @@ export class MorePage {
     public educServices: EducServicesProvider) {
 
       this.listContents();
-      //this.newContent();
+      //this.moreContents();
   }
 
   ionViewDidLoad() {
@@ -57,20 +57,15 @@ export class MorePage {
   //     contents: [
   //       {type: 'link',
   //         content: 'https://www.mathgoodies.com/lessons/vol1/area_triangle'
-  //       },
-  //       {type: 'link',
-  //         content: 'https://www.mathsisfun.com/algebra/trig-area-triangle-without-right-angle.html'
-  //       },
-  //       {type: 'link',
-  //         content: 'https://www.khanacademy.org/math/basic-geo/basic-geo-area-and-perimeter/area-triangle/a/area-of-triangle'
-  //       },
-  //       {type: 'video',
-  //         content: 'https://www.youtube.com/watch?v=Lo_dJZZsAws'
-  //       },
-  //       {type: 'video',
-  //         content: 'https://www.youtube.com/watch?v=7N5orPxUoGo'
   //       }
   //     ]
+  //   })
+  // }
+
+  // moreContents(){
+  //   this.educServices.createItem(this.basePath + '/-Lv1KaV2bmkTB2YrUTEt/' + 'contents', { 
+  //       type: 'video',
+  //         content: 'https://www.youtube.com/watch?v=Lo_dJZZsAws'
   //   })
   // }
 

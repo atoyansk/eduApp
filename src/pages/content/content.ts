@@ -22,6 +22,9 @@ export class ContentPage {
   subject;
   dateCnt;
   id;
+  thumb: any;
+
+  cont: Array<any>;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
@@ -38,6 +41,32 @@ export class ContentPage {
 
   ionViewDidLoad() {
     console.log(this.data);
+    this.cont = [];
+
+    this.cont.push(this.data);
+    console.log(this.cont);
+  }
+
+  generateArray(obj){
+    if(obj){
+      return Object.keys(obj).map((key)=>{ return obj[key]});
+    }   
+  }
+
+  thumbnail(data){
+    let url = data;
+    let videoId = String(url.split('//').pop().split('=').pop());
+    this.thumb = 'http://img.youtube.com/vi/'+videoId+'/1.jpg';
+
+    return this.thumb;
+  }
+
+  openLink(detail) {
+    // if (this.plt.is('cordova')) {
+    //   this.youtube.openVideo(video.snippet.resourceId.videoId);
+    // } else {
+      window.open(detail);
+    // }
   }
 
 }

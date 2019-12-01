@@ -6,5 +6,35 @@
 </ion-header>
 
 <ion-content padding>
-
+  <ion-list *ngFor="let ct of cont">
+    <ion-card *ngFor="let det of generateArray(ct.contents)">
+        <ion-card-header>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-10 text-wrap>
+                <div class="title-card">{{ det.title }}</div>
+              </ion-col>
+              <ion-col col-2>
+                <ion-icon name="{{det.type}}" class="title-icon"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-header>
+      <ion-card-content>
+        <div *ngIf="det.type === 'videocam'">
+            <button ion-item text-wrap (click)="openLink(det.content)">
+              <ion-thumbnail item-block>
+                <img src="{{thumbnail(det.content)}}">
+              </ion-thumbnail>
+              <p>{{ det.content }}</p>
+            </button>
+        </div>
+        <div *ngIf="det.type === 'link'">
+            <button ion-item text-wrap (click)="openLink(det.content)">
+              <p>{{ det.content }}</p>
+            </button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
 </ion-content>

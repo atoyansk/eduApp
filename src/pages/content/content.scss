@@ -47,4 +47,37 @@ page-content {
         margin-block-end: 0;
       }
 
+      .card-header-md {
+        background-color: #FCFBFC;
+        padding: 8px;
+      }
+
+      .item-md ion-thumbnail{
+          margin: 0 0 10px 0;
+      }
+
+      .item-md ion-thumbnail img{
+        width: 150px;
+        height: auto;
+        margin: 0 auto;
+        border: 1px solid #CCC;
+      }
+
+      .card-content-md {
+        padding: 13px 0px;
+      }
+
+      .item-md p{
+          font-size: 1.2rem;
+      }
+
+      .title-card{
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .title-icon{
+          float: right;
+      }
+
 }
