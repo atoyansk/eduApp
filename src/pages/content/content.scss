@@ -69,6 +69,8 @@ page-content {
 
       .item-md p{
           font-size: 1.2rem;
+          line-height: 1.7rem;
+          text-decoration: underline;
       }
 
       .title-card{
@@ -78,6 +80,13 @@ page-content {
 
       .title-icon{
           float: right;
+          color: color($colors, secondary);
+      }
+
+      .credit{
+        margin: 5px auto;
+        font-size: 1.1rem;
+        text-align: center; 
       }
 
 }

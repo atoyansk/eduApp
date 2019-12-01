@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, Platform } from 'ionic-angular';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Observable } from "rxjs/Observable";
 import * as firebase from 'firebase/app';
@@ -29,6 +29,7 @@ export class ContentPage {
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     public modalCtrl: ModalController,
+    private platForm: Platform,
     public db: AngularFireDatabase,
     public educServices: EducServicesProvider) {
 
@@ -62,8 +63,8 @@ export class ContentPage {
   }
 
   openLink(detail) {
-    // if (this.plt.is('cordova')) {
-    //   this.youtube.openVideo(video.snippet.resourceId.videoId);
+    // if (this.platForm.is('cordova')) {
+    //   this.youtube.openLink(detail);
     // } else {
       window.open(detail);
     // }
