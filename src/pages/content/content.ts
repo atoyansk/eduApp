@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import { Observable } from "rxjs/Observable";
+import * as firebase from 'firebase/app';
+import 'rxjs/add/operator/map';
 
-/**
- * Generated class for the ContentPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { EducServicesProvider } from '../../providers/educ-services/educ-services';
+
+import * as moment from 'moment';
+
 
 @IonicPage()
 @Component({
@@ -15,11 +17,27 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ContentPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  data;
+  class;
+  subject;
+  dateCnt;
+  id;
+
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    public modalCtrl: ModalController,
+    public db: AngularFireDatabase,
+    public educServices: EducServicesProvider) {
+
+      this.data = navParams.get('data');
+      this.class = this.data.class;
+      this.subject = this.data.subject;
+      this.dateCnt = this.data.date;
+      this.id = this.data.id;
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ContentPage');
+    console.log(this.data);
   }
 
 }

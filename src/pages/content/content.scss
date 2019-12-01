@@ -1,3 +1,50 @@
 page-content {
 
+    div .fixed-content, 
+  ion-content .fixed-content{
+    margin-top: 170px;
+  }
+
+  .scroll-content {
+      margin-top: 170px !important;
+      padding: 12px !important;
+  }
+
+    ion-header {
+        height: 170px;
+        background-image: 
+        url('../../assets/imgs/topo-tasks.png'), 
+        linear-gradient(to top right,#AC5E98,#6B63D3);
+        background-size: cover;
+        background-position: center;
+      }
+
+      .bar-button-default-md {
+        color: #6900c7;
+    }
+
+    .toolbar-background-md, .toolbar-background-ios {
+        border-color: transparent !important;
+        background: transparent !important;
+    }
+
+    h3 {
+        color: #6900c7;
+        margin: 0 16px;
+        font-size: 1.7rem;
+        font-weight: 500;
+        width: 135px;
+      }
+      #subtitle {
+        color: #6900c7;
+        padding: 0 16px;
+        font-size: 1.3rem;
+        font-weight: 500;
+        width: 100%;
+        position: absolute;
+        bottom: 7px;
+        margin-block-start: 0;
+        margin-block-end: 0;
+      }
+
 }
