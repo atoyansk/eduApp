@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
-import { Observable } from "rxjs/Observable";
 import * as firebase from 'firebase/app';
-import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Observable';
+import { map } from 'rxjs/operators';
 import { RoundProgressModule } from 'angular-svg-round-progressbar';
 
 import { EducServicesProvider } from '../../providers/educ-services/educ-services'
@@ -35,17 +35,16 @@ export class WorksPage {
   }
 
   listWorks(){
-    this.works = this.educServices.getList(this.basePath);
-
-    this.works.subscribe(
+    this.educServices.getList(this.basePath).subscribe(
         res=> {
+          this.works = res;
           console.log(res);
           this.showSpinner = false;
         })     
   }
 
-  goTodo(data){
-    this.navCtrl.push(TodoPage, {data: data});
+  goTodo(dados){
+    this.navCtrl.push(TodoPage, {dados: dados});
   }
 
 }

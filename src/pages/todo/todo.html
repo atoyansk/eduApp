@@ -11,7 +11,7 @@
 <ion-content no-padding>
   <loading-spinner *ngIf="showSpinner"></loading-spinner>
   <ion-list>
-    <ion-item-sliding *ngFor="let task of tasks | async">
+    <ion-item-sliding *ngFor="let task of tasks">
       <ion-item text-wrap [class.doneItem]="task.done === true">
         <ion-row>
           <ion-col col-2>

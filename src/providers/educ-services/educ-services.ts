@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
+import { map } from 'rxjs/operators';
 
 
 @Injectable()
@@ -14,25 +14,25 @@ export class EducServicesProvider {
 
   getList(basePath: string){
     return this.db.list(basePath).snapshotChanges()
-    .map(changes =>{
+    .pipe(map(changes =>{
       return changes.map(c=> {
         const data = c.payload.val();
         const id = c.payload.key;
-        return { id, ...data };
+        return { key: id, ...(data as object) };
       });
-    })
+    }))
   }
 
   getListRef(id: string, basePath: string, field: string){
     return this.db.list(basePath, ref => 
     ref.orderByChild(field).equalTo(id)).snapshotChanges()
-    .map(changes =>{
+    .pipe(map(changes =>{
       return changes.map(c=> {
         const data = c.payload.val();
         const id = c.payload.key;
-        return { id, ...data };
+        return { key: id, ...(data as object) };
       });
-    })
+    }))
   }
 
   removeItem(key: string, basePath: string) {

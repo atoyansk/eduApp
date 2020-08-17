@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
-import { Observable } from "rxjs/Observable";
 import * as firebase from 'firebase/app';
-import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Observable';
+import { map } from 'rxjs/operators';
 
 import { EducServicesProvider } from '../../providers/educ-services/educ-services';
 import { NewTaskPage } from '../new-task/new-task';
@@ -14,13 +14,13 @@ import * as moment from 'moment';
   selector: 'page-todo',
   templateUrl: 'todo.html',
 })
-export class TodoPage {
+export class TodoPage implements OnInit {
 
   data;
   name;
   delivery;
   id;
-  field;
+  field = 'workId';
 
   tasks;
   showSpinner: boolean = true;
@@ -42,10 +42,7 @@ export class TodoPage {
     public db: AngularFireDatabase,
     public educServices: EducServicesProvider) {
 
-    this.data = navParams.get('data');
-    this.name = this.data.name;
-    this.delivery = this.data.deliveryDate;
-    this.id = this.data.id;
+    
 
     this.field = 'workId';
 
@@ -54,20 +51,31 @@ export class TodoPage {
 
   }
 
+  ngOnInit() {
+    this.data = this.navParams.get('dados');
+    this.name = this.data.name;
+    this.delivery = this.data.deliveryDate;
+    this.id = this.data.key;
+
+    console.log(this.data);
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad TodoPage');
   }
 
   listTasks(){
-    this.tasks = this.educServices.getListRef(this.id, this.basePath, this.field);
-
-    this.tasks.subscribe(
+    this.data = this.navParams.get('dados');
+    this.id = this.data.key;
+     this.educServices.getListRef(this.id, this.basePath, this.field).subscribe(
         res=> {
+          this.tasks = res;
           console.log(res);
           this.showSpinner = false;
           this.done = 0;
           res.forEach(r => {
-            if(r.done === true){
+            if(r.done === true) {
+              console.log(r);
               this.done = this.done + 1
               console.log(this.done)
             }
