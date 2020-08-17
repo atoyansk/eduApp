@@ -25,7 +25,7 @@ export class TodoPage implements OnInit {
   tasks;
   showSpinner: boolean = true;
   total: number = 0;
-  done: number;
+  feito: number;
   concluded: number = 0;
 
   today = moment().format("YYYY-MM-DD");
@@ -55,7 +55,7 @@ export class TodoPage implements OnInit {
     this.data = this.navParams.get('dados');
     this.name = this.data.name;
     this.delivery = this.data.deliveryDate;
-    this.id = this.data.key;
+    this.id = this.data.id;
 
     console.log(this.data);
   }
@@ -66,26 +66,26 @@ export class TodoPage implements OnInit {
 
   listTasks(){
     this.data = this.navParams.get('dados');
-    this.id = this.data.key;
+    this.id = this.data.id;
      this.educServices.getListRef(this.id, this.basePath, this.field).subscribe(
         res=> {
           this.tasks = res;
           console.log(res);
           this.showSpinner = false;
-          this.done = 0;
+          this.feito = 0;
           res.forEach(r => {
             if(r.done === true) {
               console.log(r);
-              this.done = this.done + 1
-              console.log(this.done)
+              this.feito = this.feito + 1
+              console.log(this.feito)
             }
           })
           this.total = Object.keys(res).length;
 
-          console.log("Total: " + this.total, "Done: " + this.done);
+          console.log("Total: " + this.total, "Done: " + this.feito);
 
-          if(this.total && this.done){
-            this.concluded = Math.round(this.done * 100 / this.total);
+          if(this.total && this.feito){
+            this.concluded = Math.round(this.feito * 100 / this.total);
             console.log(this.concluded);
             this.educServices.updateItem(this.id, this.basePath2, {concluded: this.concluded});
           }else{

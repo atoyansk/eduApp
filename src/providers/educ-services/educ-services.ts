@@ -12,14 +12,16 @@ export class EducServicesProvider {
 
   }
 
+  documentToDomainObject = _ => {
+      const object = _.payload.val();
+      object.id = _.payload.key;
+      return object;
+  }
+
   getList(basePath: string){
     return this.db.list(basePath).snapshotChanges()
     .pipe(map(changes =>{
-      return changes.map(c=> {
-        const data = c.payload.val();
-        const id = c.payload.key;
-        return { key: id, ...(data as object) };
-      });
+      return changes.map(this.documentToDomainObject);
     }))
   }
 
@@ -27,11 +29,7 @@ export class EducServicesProvider {
     return this.db.list(basePath, ref => 
     ref.orderByChild(field).equalTo(id)).snapshotChanges()
     .pipe(map(changes =>{
-      return changes.map(c=> {
-        const data = c.payload.val();
-        const id = c.payload.key;
-        return { key: id, ...(data as object) };
-      });
+      return changes.map(this.documentToDomainObject);
     }))
   }
 
