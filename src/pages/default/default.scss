@@ -44,4 +44,47 @@ page-default {
         border-radius: 10px;
         background: color($colors, branco);
     }
+
+    ion-scroll {
+        white-space: nowrap;
+        height: 70px !important;
+        width: 82vw !important;
+        margin-top: 280px;
+    }
+    ion-card {
+        max-height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+    ion-card-content {
+        overflow: hidden;
+        overflow-y: auto;
+      }
+
+    .info{
+       position: relative;
+       margin: 50px auto 15px auto;
+       text-align: center;
+       .name{ font-size: 1.2em; font-weight: 700; color: #5B6167;}
+       .classes{ font-weight: 600; color: #9A9EA1;}
+    }
+
+    .numbers{
+        width: 84vw;
+    }
+    .content-numbers{
+        display: inline-flex;
+        justify-content: space-around;
+        .first-item{ border-right: 1px solid color($colors, primarylight); }
+    }
+    .dado{
+        text-align: center;
+        padding: 0 18px;
+        .info-number{
+            font-size: 2em;
+            font-weight: 700;
+            color: color($colors, primary);
+        }
+        .label-number{font-weight: 600; color: #9A9EA1;}
+    }
 }
