@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the DefaultPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { MessagesPage } from '../messages/messages';
+import { TasksPage } from '../tasks/tasks';
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -20,6 +16,14 @@ export class DefaultPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DefaultPage');
+  }
+
+  goMsgs(){
+    this.navCtrl.setRoot(HomePage, {tabIndex: 4});
+  }
+
+  goTasks(){
+    this.navCtrl.setRoot(HomePage, {tabIndex: 3});
   }
 
 }

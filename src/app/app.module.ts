@@ -18,6 +18,7 @@ import { FurloughPage } from '../pages/furlough/furlough';
 import { NewTaskPage } from '../pages/new-task/new-task';
 import { NewCalendarPage } from '../pages/new-calendar/new-calendar';
 import { ContentPage } from '../pages/content/content';
+import { MessagesPage } from '../pages/messages/messages';
 
 import { DatePageModule } from '../pages/date/date.module';
 import { GradesPageModule } from '../pages/grades/grades.module';

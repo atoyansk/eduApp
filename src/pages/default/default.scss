@@ -81,10 +81,10 @@ page-default {
         text-align: center;
         padding: 0 18px;
         .info-number{
-            font-size: 2em;
+            font-size: 1.8em;
             font-weight: 700;
             color: color($colors, primary);
         }
-        .label-number{font-weight: 600; color: #9A9EA1;}
+        .label-number{font-size: 1em; font-weight: 600; color: #9A9EA1;}
     }
 }

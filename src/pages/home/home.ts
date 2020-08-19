@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App, Tabs } from 'ionic-angular';
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 
 @IonicPage()
@@ -7,23 +7,36 @@ import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/na
   selector: 'page-home',
   templateUrl: 'home.html',
 })
-export class HomePage {  
+export class HomePage { 
+  
   tab1 = 'DatePage';
   tab2 = 'GradesPage';
   tab3 = 'DefaultPage';
   tab4 = 'TasksPage';
   tab5 = 'MessagesPage';
 
+  mySelectedIndex;
+
   loaded:   boolean = false;
   tabIndex: number  = 0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private nativePageTransitions: NativePageTransitions) {
+    private nativePageTransitions: NativePageTransitions, private app: App) {
+      
+      this.mySelectedIndex = navParams.data.tabIndex || 2;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
+    console.log(this.mySelectedIndex);
   }
+
+  // ngAfterViewInit() {
+  //   setTimeout(() => {
+  //   console.log(this.educTabs);
+  //   this.educTabs.select(1);
+  //   }, 500);
+  // }
 
   private getAnimationDirection(index:number):string {
     var currentIndex = this.tabIndex;
