@@ -18,6 +18,7 @@ page-default {
         margin: 0 auto;
         border: 3px solid color($colors, secondary);
         box-shadow: 1px 1px 3px color($colors, secondary);
+        z-index: 999;
     }
 
     ion-avatar > img{
@@ -47,9 +48,9 @@ page-default {
 
     ion-scroll {
         white-space: nowrap;
-        height: 70px !important;
+        height: 90px !important;
         width: 82vw !important;
-        margin-top: 280px;
+        margin-top: 25px;
     }
     ion-card {
         max-height: 100%;
@@ -87,4 +88,20 @@ page-default {
         }
         .label-number{font-size: 1em; font-weight: 600; color: #9A9EA1;}
     }
+    .chip-md {
+        border-radius: 8px;
+        height: 70px;
+        font-size: 13px;
+        line-height: 32px;
+        color: color($colors, branco);
+        background: color($colors, secondary);
+        margin: 2px 4px;
+        max-width: 125px;
+    }
+    .chip-md > ion-label {
+        margin: 0 10px;
+        white-space: normal;
+        text-align: center;
+    }
+
 }
