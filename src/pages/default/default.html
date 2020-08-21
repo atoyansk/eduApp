@@ -28,22 +28,31 @@
           <ion-scroll scrollX="true" class="events">
             <ion-row nowrap>
               <ion-chip>
-                <ion-label>Chemistry Presentation</ion-label>
+                <ion-label>Sport's Day</ion-label>
               </ion-chip>
               <ion-chip>
-                <ion-label>Anouncements</ion-label>
+                <ion-label>Rosh HaShanah Ceremony</ion-label>
               </ion-chip>
               <ion-chip>
-                <ion-label>Java</ion-label>
+                <ion-label>Independence Day</ion-label>
               </ion-chip>
               <ion-chip>
-                <ion-label>Java</ion-label>
+                <ion-label>Parent and Teacher Meeting</ion-label>
               </ion-chip>
               <ion-chip>
-                <ion-label>Java</ion-label>
+                <ion-label>Science Fair</ion-label>
               </ion-chip>
             </ion-row>
           </ion-scroll>
+
+          <ion-card class="graph">
+            <ion-card-header>
+              Overall Performance
+            </ion-card-header>
+            <ion-card-content>
+              <canvas responsive="true" maintainAspectRatio="true" #barCanvas></canvas>
+            </ion-card-content>
+          </ion-card>
         </ion-card-content>
     </ion-card>
 </ion-content>

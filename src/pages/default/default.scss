@@ -48,7 +48,7 @@ page-default {
 
     ion-scroll {
         white-space: nowrap;
-        height: 90px !important;
+        height: 110px !important;
         width: 82vw !important;
         margin-top: 25px;
     }
@@ -90,9 +90,9 @@ page-default {
     }
     .chip-md {
         border-radius: 8px;
-        height: 70px;
+        height: 88px;
         font-size: 13px;
-        line-height: 32px;
+        line-height: 21px;
         color: color($colors, branco);
         background: color($colors, secondary);
         margin: 2px 4px;
@@ -103,5 +103,15 @@ page-default {
         white-space: normal;
         text-align: center;
     }
+
+    .graph{
+        width: 84vw;
+        height: 200px;
+        ion-card-content{
+            height: 200px;
+            padding: 0 !important;
+        }
+    }
+
 
 }

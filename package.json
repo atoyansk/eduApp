@@ -48,6 +48,7 @@
     "@ionic/storage": "2.2.0",
     "angular-svg-round-progressbar": "1.2.1",
     "angularfire2": "^5.1.2",
+    "chart.js": "^2.9.3",
     "com.telerik.plugins.nativepagetransitions": "0.6.5",
     "cordova-android": "8.1.0",
     "cordova-plugin-androidx": "1.0.2",
